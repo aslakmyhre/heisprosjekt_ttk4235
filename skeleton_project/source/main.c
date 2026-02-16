@@ -3,6 +3,12 @@
 #include <signal.h>
 #include <time.h>
 #include "driver/elevio.h"
+#include "heisbevegelse.h"
+#include "bestillinger.h"
+#include "dør.h"
+#include "lys.h"
+
+
 
 
 
