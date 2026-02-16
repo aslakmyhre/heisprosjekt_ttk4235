@@ -1,8 +1,8 @@
 #pragma once
 
-void ankomEtasje();
+void ankomEtasje(int floor);
 
-void stoppPåEtasje();
+void stoppPåEtasje(int floor);
 
 void setPådrag(int pådrag);
 
