@@ -14,5 +14,14 @@ void clearBestillinger(int floor){
 }
 
 int retningsVelger(int floor, int retning){
+    if (floor==0) {
+        retning=1;
+        return retning; //opp
+    }
+    else if (floor==3) {
+        retning=-1;
+        return retning;
+    }
+    // ...
 
 }
