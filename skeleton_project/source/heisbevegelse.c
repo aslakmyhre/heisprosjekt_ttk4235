@@ -37,3 +37,13 @@ void oppstart(){
     }
 
 }
+
+void inaktiv(void) {
+    while(1) {
+        for(int i = 0; i < N_FLOORS; ++i) {
+            if(finnesBestilling(i)) {
+                return;
+            }
+        }
+    }
+}
