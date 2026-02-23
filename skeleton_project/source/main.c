@@ -25,11 +25,11 @@ int main(){
         }
 
         if(floor == 0){
-            elevio_motorDirection(DIRN_UP);
+            setRetning(1);
         }
 
         if(floor == N_FLOORS-1){
-            elevio_motorDirection(DIRN_DOWN);
+            setRetning(-1);
         }
 
 
@@ -37,9 +37,6 @@ int main(){
             for(int b = 0; b < N_BUTTONS; b++){
                 int btnPressed = elevio_callButton(f, b);
                 elevio_buttonLamp(f, b, btnPressed);
-                if(btnPressed){
-                    opprettBestilling(f, b);
-                }
             }
         }
 

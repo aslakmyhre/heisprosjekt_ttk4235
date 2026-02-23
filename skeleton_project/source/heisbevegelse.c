@@ -9,14 +9,13 @@ int retning = 0;
 
 int getRetning(void) {
     return retning;
-    int floor = elevio_floorSensor();
 }
 
 void setRetning(int nyRetning) {
     if(retning != 0) {
         retning = nyRetning;
     }
-    elevio_motorDirection(retning);
+    elevio_motorDirection(nyRetning);
 }
 
 void ankomEtasje(int floor) {
