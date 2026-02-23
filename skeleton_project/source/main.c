@@ -15,13 +15,14 @@
 int main(){
     elevio_init();
     
-    printf("=== Example Program ===\n");
-    printf("Press the stop button on the elevator panel to exit\n");
-
-    elevio_motorDirection(DIRN_UP);
+    oppstart();
 
     while(1){
         int floor = elevio_floorSensor();
+        // sjekk om heisen har nådd en etasje
+        if (floor!=-1) {
+            ankomEtasje(floor);
+        }
 
         if(floor == 0){
             elevio_motorDirection(DIRN_UP);
