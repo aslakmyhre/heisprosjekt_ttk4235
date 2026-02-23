@@ -54,5 +54,10 @@ void inaktiv(void) {
                 return;
             }
         }
+        // stoppknapp breaker programmet
+        if(elevio_stopButton()){
+            elevio_motorDirection(DIRN_STOP);
+            break;
+        }
     }
 }

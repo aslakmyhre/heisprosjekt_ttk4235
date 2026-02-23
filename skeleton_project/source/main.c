@@ -38,7 +38,7 @@ int main(){
                 int btnPressed = elevio_callButton(f, b);
                 elevio_buttonLamp(f, b, btnPressed);
                 if(btnPressed){
-                    opprettBestilling(f, b);
+                    opprettBestilling(f, b); //
                 }
             }
         }
