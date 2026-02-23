@@ -10,4 +10,4 @@ void aktiverKnappLys(LysType lysType, int lysIndex, bool On);
 */
 
 
-void aktiverEtasjeLys(int lysIndex);
+//void aktiverEtasjeLys(int lysIndex);
