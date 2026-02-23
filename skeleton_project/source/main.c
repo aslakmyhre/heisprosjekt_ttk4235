@@ -37,6 +37,9 @@ int main(){
             for(int b = 0; b < N_BUTTONS; b++){
                 int btnPressed = elevio_callButton(f, b);
                 elevio_buttonLamp(f, b, btnPressed);
+                if(btnPressed){
+                    opprettBestilling(f, b);
+                }
             }
         }
 
