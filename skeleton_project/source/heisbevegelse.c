@@ -27,7 +27,7 @@ void stoppPåEtasje(int floor){
     åpneDør();
     lukkDør();
     clearBestillinger(floor);
-    setRetning(retningsVelger);
+    setRetning(retningsVelger(floor, retning));
 }
 
 void oppstart(){
