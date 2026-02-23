@@ -39,6 +39,7 @@ void oppstart(){
 }
 
 void inaktiv(void) {
+    int floor = elevio_floorSensor();
     while(1) {
         for(int f = 0; f < N_FLOORS; f++){
             for(int b = 0; b < N_BUTTONS; b++){
