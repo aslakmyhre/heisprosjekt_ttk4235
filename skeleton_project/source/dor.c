@@ -1,4 +1,4 @@
-#include "dør.h"
+#include "dor.h"
 #include "driver/elevio.h"
 #include <stdio.h>
 

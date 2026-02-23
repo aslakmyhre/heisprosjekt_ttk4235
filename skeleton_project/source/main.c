@@ -5,7 +5,7 @@
 #include "driver/elevio.h"
 #include "heisbevegelse.h"
 #include "bestillinger.h"
-#include "dør.h"
+#include "dor.h"
 #include "lys.h"
 
 
