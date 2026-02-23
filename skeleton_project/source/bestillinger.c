@@ -7,6 +7,22 @@ bool innvendigeBestillinger[] = {false, false, false, false};
 
 bool sjekkEtasje(int floor, int retning){
     // sjekk 
+    bool panel = innvendigeBestillinger[floor];
+    bool opp = oppBestillinger[floor];
+    bool ned = nedBestillinger[floor];
+
+    if (panel==true) {
+        return true;
+    }
+    else if(opp==true && retning==1) {
+        return true;
+    }
+    else if(ned==true && retning==-1) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 void clearBestillinger(int floor){
