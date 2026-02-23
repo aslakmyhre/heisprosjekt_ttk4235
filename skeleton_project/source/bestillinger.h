@@ -1,8 +1,8 @@
 #pragma once
 #include <stdbool.h>
 
-bool sjekkEtasje(int etasje, bool retning);
+bool sjekkEtasje(int floor, int retning);
 
-void clearBestillinger(int etasje);
+void clearBestillinger(int floor);
 
-bool retningsVelger(int etasje, bool retning);
+int retningsVelger(int floor, int retning);
