@@ -12,7 +12,9 @@ int getRetning(void) {
 }
 
 void setRetning(int nyRetning) {
-    retning = nyRetning;
+    if(retning != 0) {
+        retning = nyRetning;
+    }
     elevio_motorDirection(retning);
 }
 
@@ -27,6 +29,7 @@ void stoppPåEtasje(int floor){
     åpneDør();
     lukkDør();
     clearBestillinger(floor);
+    inaktiv();
     setRetning(retningsVelger(floor, retning));
 }
 
@@ -35,7 +38,6 @@ void oppstart(){
     if (floor==-1){
         setRetning(-1);
     }
-
 }
 
 void inaktiv(void) {
@@ -47,7 +49,6 @@ void inaktiv(void) {
                 elevio_buttonLamp(f, b, btnPressed);
             }
             if(finnesBestilling(f)) {
-                setRetning(retningsVelger(floor, retning));
                 return;
             }
         }
