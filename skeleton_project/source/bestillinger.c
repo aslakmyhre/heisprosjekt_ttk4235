@@ -51,7 +51,7 @@ void clearBestillinger(int floor){
     nedBestillinger[floor]=false;
     innvendigeBestillinger[floor]=false;
 }
-
+/*
 int retningsVelger(int floor, int retning){
     switch (floor) {
     case 0: 
@@ -95,5 +95,20 @@ int retningsVelger(int floor, int retning){
         retning = -1;
         return retning;
     default: return 0;
+    }
+}
+
+*/
+
+int retningsVelger(int floor, int retning){
+    for (int f = floor + retning; f >= 0 && f < 4; f += retning) {
+        if (finnesBestilling(f)) {
+            return retning;
+        }
+    }
+    for (int f = floor - retning; f >= 0 && f < 4; f -= retning) {
+        if (finnesBestilling(f)) {
+            return -1 * retning;
+        }
     }
 }
