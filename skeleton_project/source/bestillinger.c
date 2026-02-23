@@ -26,7 +26,9 @@ bool sjekkEtasje(int floor, int retning){
 }
 
 void clearBestillinger(int floor){
-
+    oppBestillinger[floor]=false;
+    nedBestillinger[floor]=false;
+    innvendigeBestillinger[floor]=false;
 }
 
 int retningsVelger(int floor, int retning){
