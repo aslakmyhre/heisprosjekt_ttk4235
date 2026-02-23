@@ -3,7 +3,7 @@
 #include "heisbevegelse.h"
 #include "bestillinger.h"
 #include "driver/elevio.h"
-#include "dør.h"
+#include "dor.h"
 
 int retning = 0;
 
@@ -15,7 +15,7 @@ void setRetning(int nyRetning) {
     if(retning != 0) {
         retning = nyRetning;
     }
-    elevio_motorDirection(retning);
+    elevio_motorDirection(nyRetning);
 }
 
 void ankomEtasje(int floor) {
@@ -41,7 +41,6 @@ void oppstart(){
 }
 
 void inaktiv(void) {
-    int floor = elevio_floorSensor();
     while(1) {
         for(int f = 0; f < N_FLOORS; f++){
             for(int b = 0; b < N_BUTTONS; b++){
