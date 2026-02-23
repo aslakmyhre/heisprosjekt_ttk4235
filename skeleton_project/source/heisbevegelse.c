@@ -40,8 +40,12 @@ void oppstart(){
 
 void inaktiv(void) {
     while(1) {
-        for(int i = 0; i < N_FLOORS; ++i) {
-            if(finnesBestilling(i)) {
+        for(int f = 0; f < N_FLOORS; f++){
+            for(int b = 0; b < N_BUTTONS; b++){
+                int btnPressed = elevio_callButton(f, b);
+                elevio_buttonLamp(f, b, btnPressed);
+            }
+            if(finnesBestilling(f)) {
                 return;
             }
         }
