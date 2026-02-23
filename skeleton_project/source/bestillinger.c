@@ -5,6 +5,19 @@ bool oppBestillinger[] = {false, false, false, false};
 bool nedBestillinger[] = {false, false, false, false};
 bool innvendigeBestillinger[] = {false, false, false, false};
 
+
+void opprettBestilling(int floor, int button){
+    switch(button) {
+        case 0: // UP
+            oppBestillinger[floor]=true;
+        case 1: // DOWN
+            nedBestillinger[floor]=true;
+        case 3: // CAB
+            innvendigeBestillinger[floor]=true;
+        default: break;
+    }
+}
+
 bool finnesBestilling(int floor){
     if (oppBestillinger[floor] || nedBestillinger[floor] || innvendigeBestillinger[floor]) {
         return true;
@@ -81,5 +94,6 @@ int retningsVelger(int floor, int retning){
     case 3:
         retning = -1;
         return retning;
+    default: return 0;
     }
 }
