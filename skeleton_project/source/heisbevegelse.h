@@ -2,7 +2,7 @@
 
 int getRetning(void);
 
-int setRetning(int nyRetning);
+void setRetning(int nyRetning);
 
 void ankomEtasje(int floor);
 
