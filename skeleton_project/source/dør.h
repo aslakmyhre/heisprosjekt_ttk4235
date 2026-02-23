@@ -1,5 +1,5 @@
 #pragma once
 
-void åpneDør();
+void åpneDør(int floor);
 
 void lukkDør();
