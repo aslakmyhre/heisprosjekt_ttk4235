@@ -3,8 +3,8 @@
 #include <stdio.h>
 
 
-void åpneDør(int floor){
-    if (floor!=-1) {
+void åpneDør(){
+    if (elevio_floorSensor()!=-1) {
         elevio_doorOpenLamp(1);
     }
 }
