@@ -19,6 +19,7 @@ void setRetning(int nyRetning) {
 }
 
 void ankomEtasje(int floor) {
+    elevio_floorIndicator(floor);
     if (sjekkEtasje(floor, retning)) {
         stoppPåEtasje(floor);
     }
