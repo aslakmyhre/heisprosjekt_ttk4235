@@ -65,16 +65,27 @@ int retningsVelger(int floor, int retning){
                 retning = 1;
                 return retning;
             }
-        }
-        //???? hvis ikke return retning
-        else {
-            retning = -1;
-            return retning;
+            else if (finnesBestilling(floor-1)) {
+                retning = -1;
+                return retning;
+            }
+            else {
+                retning = 0;
+                return retning;
+            }
         }
     case 2:
         if (retning==1){
             if (finnesBestilling(floor+1)){
                 retning = 1;
+                return retning;
+            }
+            else if (finnesBestilling(floor-1)||finnesBestilling(floor-2)) {
+                retning = -1;
+                return retning;
+            }
+            else {
+                retning = 0;
                 return retning;
             }
         }
