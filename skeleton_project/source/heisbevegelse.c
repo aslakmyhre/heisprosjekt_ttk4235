@@ -46,6 +46,7 @@ void inaktiv(void) {
                 elevio_buttonLamp(f, b, btnPressed);
             }
             if(finnesBestilling(f)) {
+                setRetning(retningsVelger(floor, retning));
                 return;
             }
         }
