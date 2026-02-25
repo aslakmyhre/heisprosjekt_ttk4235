@@ -100,15 +100,24 @@ int retningsVelger(int floor, int retning){
 
 */
 
+
+//25-02: lagt inn return 0 dersom ingen bestillinger finnes (redundant, men greit å ha)
 int retningsVelger(int floor, int retning){
+    int ret; 
     for (int f = floor + retning; f >= 0 && f < 4; f += retning) {
         if (finnesBestilling(f)) {
-            return retning;
+            ret= retning;
         }
     }
     for (int f = floor - retning; f >= 0 && f < 4; f -= retning) {
         if (finnesBestilling(f)) {
-            return -1 * retning;
+            ret= -1 * retning;
         }
+    }
+    if (ret) {
+        return ret;
+    }
+    else {
+        return 0; 
     }
 }
