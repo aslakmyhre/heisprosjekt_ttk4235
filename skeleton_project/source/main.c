@@ -59,3 +59,28 @@ int main(){
 
     return 0;
 }
+
+
+//alternativ main
+/*
+int main() {
+    elevio_init();
+    
+    oppstart();
+
+    while(1){
+        int floor = elevio_floorSensor();
+        // sjekk om heisen har nådd en etasje
+        if (floor!=-1) {
+            ankomEtasje(floor);
+        }
+
+        inaktiv();
+        retningsvelger(f, r); //??? retning=0? krever endring i retningsvelger
+
+
+
+    }
+
+}
+*/
