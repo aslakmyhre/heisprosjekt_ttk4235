@@ -12,7 +12,7 @@ void opprettBestilling(int floor, int button){
             oppBestillinger[floor]=true;
         case 1: // DOWN
             nedBestillinger[floor]=true;
-        case 3: // CAB
+        case 2: // CAB
             innvendigeBestillinger[floor]=true;
         default: break;
     }
