@@ -1,5 +1,6 @@
 #include "bestillinger.h"
 #include <stdio.h>
+#include "driver/elevio.h"
 
 bool oppBestillinger[] = {false, false, false, false};
 bool nedBestillinger[] = {false, false, false, false};
@@ -7,12 +8,13 @@ bool innvendigeBestillinger[] = {false, false, false, false};
 
 
 void opprettBestilling(int floor, int button){
+    elevio_buttonLamp(floor, button, 1); // skru på knapplys
     switch(button) {
         case 0: // UP
             oppBestillinger[floor]=true;
         case 1: // DOWN
             nedBestillinger[floor]=true;
-        case 2: // CAB
+        case 2: // CAB // 01-03: endra fra 3 til 2, tror det er riktig? må sjekke
             innvendigeBestillinger[floor]=true;
         default: break;
     }
@@ -50,6 +52,9 @@ void clearBestillinger(int floor){
     oppBestillinger[floor]=false;
     nedBestillinger[floor]=false;
     innvendigeBestillinger[floor]=false;
+    for (int b = 0; b <= 2; ++b) { // slukk knapplys
+        elevio_buttonLamp(floor, b, 0);
+    }
 }
 /*
 int retningsVelger(int floor, int retning){
