@@ -5,7 +5,7 @@
 #include "driver/elevio.h"
 #include "dor.h"
 
-int retning = 0;
+int retning = 0; // retning er den forrige ikke-null retningen til heisen
 
 int getRetning(void) {
     return retning;
