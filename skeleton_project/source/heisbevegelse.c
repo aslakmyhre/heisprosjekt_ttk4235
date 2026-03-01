@@ -7,7 +7,7 @@
 
 int retning = 0; // retning er den forrige ikke-null retningen til heisen
 
-int getRetning(void) {
+int getRetning() {
     return retning;
 }
 
@@ -41,7 +41,7 @@ void oppstart(){
     }
 }
 
-void inaktiv(void) {
+void inaktiv() {
     while(1) {
         for(int f = 0; f < N_FLOORS; f++){
             for(int b = 0; b < N_BUTTONS; b++){
@@ -61,4 +61,18 @@ void inaktiv(void) {
             break;
         }
     }
+}
+
+void stoppKnappFunksjon() {
+    int stoppTrukket = 1;
+    elevio_stopLamp(1);
+    // slett alle ubetjente bestillinger
+    for(int f = 0; f < 4; ++f) {
+        clearBestillinger(f);
+    }
+    while (stoppTrukket == 1) {
+        stoppTrukket = elevio_stopButton();
+    } // går ut av løkka når stoppknappen slippes
+    elevio_stopLamp(0);
+    inaktiv();
 }
