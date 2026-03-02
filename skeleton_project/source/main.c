@@ -14,16 +14,14 @@
 
 int main(){
     elevio_init();
-    
-    int forrigeEtasje = -1;
    
     oppstart();
 
     while(1){
         int floor = elevio_floorSensor();
         // sjekk om heisen har nådd en etasje
-        if (floor!=-1 && (floor!=forrigeEtasje)) {
-            forrigeEtasje = floor;
+        if (floor!=-1 && (floor!=getForrigeEtasje())) {
+            setForrigeEtasje(floor);
             ankomEtasje(floor);
         }
         // bør være redundant ved ferdig heis, men greit å ha

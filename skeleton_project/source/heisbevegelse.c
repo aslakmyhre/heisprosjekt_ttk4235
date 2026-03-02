@@ -6,6 +6,8 @@
 #include "dor.h"
 #include <time.h>
 
+int forrigeEtasje = -1;
+
 int retning = -1; // retning er den forrige ikke-null retningen til heisen
 
 int getRetning() {
@@ -76,6 +78,10 @@ void inaktiv() {
 }
 
 void stoppKnappFunksjon() {
+    setRetning(0);
+    if(elevio_floorSensor() != -1) {
+        åpneDør();
+    }
     printf("stoppknapp kallet\n");
     int stoppTrukket = 1;
     elevio_stopLamp(1);
@@ -86,6 +92,25 @@ void stoppKnappFunksjon() {
     while (stoppTrukket == 1) {
         stoppTrukket = elevio_stopButton();
     } // går ut av løkka når stoppknappen slippes
+    
     elevio_stopLamp(0);
+    if(elevio_floorSensor() != -1) {
+        lukkDør();
+    }
+    // oppførsel når stoppknapp er sluppet
     inaktiv();
+    if(finnesBestilling(forrigeEtasje)) {
+        setRetning(getRetning() * -1);
+    }
+    else {
+    setRetning(retningsVelger(forrigeEtasje, getRetning()));
+    }
+}
+
+void setForrigeEtasje(int nyForrigeEtasje) {
+    forrigeEtasje = nyForrigeEtasje;
+}
+
+int getForrigeEtasje() {
+    return forrigeEtasje;
 }

@@ -1,6 +1,7 @@
 #include "bestillinger.h"
 #include <stdio.h>
 #include "driver/elevio.h"
+#include "heisbevegelse.h"
 
 bool oppBestillinger[] = {false, false, false, false};
 bool nedBestillinger[] = {false, false, false, false};
@@ -35,6 +36,9 @@ int loopKnapper(bool kanVekkes) {
                 if(btnPressed){
                     opprettBestilling(f, b);
                 }
+            }
+            if (elevio_stopButton()) {
+                stoppKnappFunksjon();
             }
             if (kanVekkes==true){
                 if(finnesBestilling(f)) {
@@ -148,17 +152,19 @@ int retningsVelger(int floor, int retning){
 int retningsVelger(int floor, int retning){
     printf("retningsVelger\n");
     printf("retning, %d\n", retning);
-    int ret; 
+    int ret = 0; 
     for (int f = floor + retning; f >= 0 && f < 4; f += retning) {
         //printf("+retning, %d\n", f);
         if (finnesBestilling(f)) {
             ret= retning;
         }
     }
-    for (int f = floor - retning; f >= 0 && f < 4; f -= retning) {
-        printf("-retning, %d\n", f);
-        if (finnesBestilling(f)) {
-            ret= -1 * retning;
+    if (ret == 0) {
+        for (int f = floor - retning; f >= 0 && f < 4; f -= retning) {
+            printf("-retning, %d\n", f);
+            if (finnesBestilling(f)) {
+                ret= -1 * retning;
+            }
         }
     }
     

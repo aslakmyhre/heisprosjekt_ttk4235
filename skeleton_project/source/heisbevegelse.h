@@ -13,3 +13,7 @@ void oppstart();
 void inaktiv();
 
 void stoppKnappFunksjon();
+
+void setForrigeEtasje(int nyForrigeEtasje);
+
+int getForrigeEtasje();
