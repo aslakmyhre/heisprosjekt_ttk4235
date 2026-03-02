@@ -7,9 +7,10 @@
 #include "bestillinger.h"
 #include "dor.h"
 
-
-
-
+/**
+* @file
+* @brief Heisprosjekt
+*/
 
 int main(){
     elevio_init();
