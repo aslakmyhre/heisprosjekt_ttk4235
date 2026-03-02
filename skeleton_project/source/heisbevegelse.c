@@ -43,17 +43,8 @@ void oppstart(){
 
 void inaktiv() {
     while(1) {
-        for(int f = 0; f < N_FLOORS; f++){
-            for(int b = 0; b < N_BUTTONS; b++){
-                int btnPressed = elevio_callButton(f, b);
-                elevio_buttonLamp(f, b, btnPressed);
-                if(btnPressed){
-                    opprettBestilling(f, b);
-                }
-            }
-            if(finnesBestilling(f)) {
-                return;
-            }
+        if (loopKnapper(true)==1) {
+            break;
         }
         // stoppknapp breaker programmet
         if(elevio_stopButton()){
@@ -61,6 +52,7 @@ void inaktiv() {
             break;
         }
     }
+    //return;
 }
 
 void stoppKnappFunksjon() {
