@@ -33,9 +33,9 @@ void ankomEtasje(int floor) {
 void stoppPåEtasje(int floor){
     printf("starter stoppPåEtasje()\n");
     setRetning(0);
+    clearBestillinger(floor);
     åpneDør();
     lukkDør();
-    clearBestillinger(floor);
     inaktiv();
     printf("ferdig med inaktiv\n");
     setRetning(retningsVelger(floor, retning));

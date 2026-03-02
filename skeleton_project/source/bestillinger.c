@@ -8,21 +8,23 @@ bool innvendigeBestillinger[] = {false, false, false, false};
 
 
 void opprettBestilling(int floor, int button){
-    elevio_buttonLamp(floor, button, 1); // skru på knapplys
-    switch(button) {
-        case 0: // UP
-            oppBestillinger[floor]=true;
-            printf("oppbestillinger=true for%d\n", floor);
-            break;
-        case 1: // DOWN
-            nedBestillinger[floor]=true;
-            printf("nedbestillinger=true for%d\n", floor);
-            break;
-        case 2: // CAB
-            innvendigeBestillinger[floor]=true;
-            printf("innvendigeBestillinger=true for%d\n", floor);
-            break;
-        default: break;
+    if(elevio_floorSensor() != floor){
+        elevio_buttonLamp(floor, button, 1); // skru på knapplys
+        switch(button) {
+            case 0: // UP
+                oppBestillinger[floor]=true;
+                printf("oppbestillinger=true for%d\n", floor);
+                break;
+            case 1: // DOWN
+                nedBestillinger[floor]=true;
+                printf("nedbestillinger=true for%d\n", floor);
+                break;
+            case 2: // CAB
+                innvendigeBestillinger[floor]=true;
+                printf("innvendigeBestillinger=true for%d\n", floor);
+                break;
+            default: break;
+        }
     }
 }
 
