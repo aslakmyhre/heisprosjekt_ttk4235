@@ -4,6 +4,7 @@
 #include "bestillinger.h"
 #include "driver/elevio.h"
 #include "dor.h"
+#include <time.h>
 
 int retning = -1; // retning er den forrige ikke-null retningen til heisen
 
@@ -69,6 +70,7 @@ void inaktiv() {
             elevio_motorDirection(DIRN_STOP);
             break;
         }
+        nanosleep(&(struct timespec){0, 20*1000*1000}, NULL);
     }
     //return;
 }

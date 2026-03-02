@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "bestillinger.h"
+#include <time.h>
 
 
 void åpneDør(){
@@ -14,20 +15,24 @@ void åpneDør(){
 
 void lukkDør(){
     printf("lukker dør\n");
-    int sekUtenObst = 0;
-    while (sekUtenObst <= 3) {
-        sleep(1);
+    
+    int msekUtenObst = 0;
+    while (msekUtenObst <= 150) {
+        //nanosleep(&(struct timespec){0, 20*1000}, NULL);
+
         if (elevio_obstruction()) {
-            sekUtenObst = 0;
+            msekUtenObst = 0;
         }
         else {
-            ++sekUtenObst;
+            msekUtenObst += 20;
+            printf("%d\n", msekUtenObst);
         }
         // sjekk om hver knapp er trykket
         for(int f = 0; f < N_FLOORS; f++){
             for(int b = 0; b < N_BUTTONS; b++){
                 int btnPressed = elevio_callButton(f, b);
                 elevio_buttonLamp(f, b, btnPressed);
+                printf("aaa\n");
                 if(btnPressed){
                     opprettBestilling(f, b);
                 }
@@ -37,4 +42,5 @@ void lukkDør(){
     }
     // lukk døra
     elevio_doorOpenLamp(0);
+    printf("dør lukket \n");
 }
