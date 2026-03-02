@@ -3,6 +3,8 @@
 
 void opprettBestilling(int floor, int button);
 
+int loopKnapper(bool kanVekkes);
+
 bool finnesBestilling(int floor);
 
 bool sjekkEtasje(int floor, int retning);
