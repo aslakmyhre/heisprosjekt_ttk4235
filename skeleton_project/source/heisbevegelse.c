@@ -92,18 +92,17 @@ void stoppKnappFunksjon() {
     while (stoppTrukket == 1) {
         stoppTrukket = elevio_stopButton();
     } // går ut av løkka når stoppknappen slippes
-    
+
     elevio_stopLamp(0);
-    if(elevio_floorSensor() != -1) {
-        lukkDør();
-    }
+    lukkDør();
     // oppførsel når stoppknapp er sluppet
     inaktiv();
     if(finnesBestilling(forrigeEtasje)) {
         setRetning(getRetning() * -1);
+        forrigeEtasje = -1;
     }
     else {
-    setRetning(retningsVelger(forrigeEtasje, getRetning()));
+        setRetning(retningsVelger(forrigeEtasje, getRetning()));
     }
 }
 
