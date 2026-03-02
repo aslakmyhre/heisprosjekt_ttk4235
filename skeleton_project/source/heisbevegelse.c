@@ -13,7 +13,7 @@ int getRetning() {
 
 void setRetning(int nyRetning) {
     printf("setRetning()\n");
-    if(retning != 0) {
+    if(nyRetning != 0) {
         retning = nyRetning;
     }
     elevio_motorDirection(nyRetning);
