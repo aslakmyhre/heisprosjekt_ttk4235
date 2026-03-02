@@ -2,6 +2,7 @@
 #include "driver/elevio.h"
 #include <stdio.h>
 #include <unistd.h>
+#include "bestillinger.h"
 
 
 void åpneDør(){
