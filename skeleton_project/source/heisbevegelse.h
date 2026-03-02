@@ -1,6 +1,6 @@
 #pragma once
 
-int getRetning(void);
+int getRetning();
 
 void setRetning(int nyRetning);
 
@@ -10,4 +10,6 @@ void stoppPåEtasje(int floor);
 
 void oppstart();
 // inaktiv returnerer når den skal starte opp igjen
-void inaktiv(void);
+void inaktiv();
+
+void stoppKnappFunksjon();

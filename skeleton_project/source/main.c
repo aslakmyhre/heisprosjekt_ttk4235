@@ -23,7 +23,7 @@ int main(){
         if (floor!=-1) {
             ankomEtasje(floor);
         }
-
+        // bør være redundant ved ferdig heis, men greit å ha
         if(floor == 0){
             setRetning(1);
         }
@@ -32,11 +32,10 @@ int main(){
             setRetning(-1);
         }
 
-
+        // sjekk om hver knapp er trykket
         for(int f = 0; f < N_FLOORS; f++){
             for(int b = 0; b < N_BUTTONS; b++){
                 int btnPressed = elevio_callButton(f, b);
-                elevio_buttonLamp(f, b, btnPressed);
                 if(btnPressed){
                     opprettBestilling(f, b); //
                 }
@@ -48,7 +47,7 @@ int main(){
         } else {
             elevio_stopLamp(0);
         }
-        
+        // TODO: implementer stoppknappfunksjon (finn også en annen måte å stoppe programmet)
         if(elevio_stopButton()){
             elevio_motorDirection(DIRN_STOP);
             break;
