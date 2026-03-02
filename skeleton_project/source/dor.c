@@ -18,7 +18,7 @@ void lukkDør(){
     
     time_t stoppTid = time(NULL) + 3;
 
-    while (time(NULL) < stoppTid) {
+    while (time(NULL) <= stoppTid) {
         //nanosleep(&(struct timespec){0, 20*1000}, NULL);
 
         if (elevio_obstruction()) {
