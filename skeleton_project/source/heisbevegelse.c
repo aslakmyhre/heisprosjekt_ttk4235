@@ -12,22 +12,25 @@ int getRetning() {
 }
 
 void setRetning(int nyRetning) {
-    printf("setRetning()\n");
+    printf("starter setRetning()\n");
     if(nyRetning != 0) {
         retning = nyRetning;
     }
     elevio_motorDirection(nyRetning);
-    printf("ferdig setRetning()%d\n", retning);
+    printf("ferdig setRetning(), return:%d\n", retning);
 }
 
 void ankomEtasje(int floor) {
+    printf("starter ankometasje\n");
     elevio_floorIndicator(floor);
     if (sjekkEtasje(floor, retning)) {
         stoppPåEtasje(floor);
+        printf("stopper på %d\n", floor);
     }
 }
 
 void stoppPåEtasje(int floor){
+    printf("starter stoppPåEtasje()\n");
     setRetning(0);
     åpneDør();
     lukkDør();
@@ -39,9 +42,11 @@ void stoppPåEtasje(int floor){
 }
 
 void oppstart(){
+    printf("starter oppstart()\n");
     int floor = elevio_floorSensor();
     if (floor==-1){
         setRetning(-1);
+        printf("fra oppstart: setRetning():%d\n", floor);
     }
 }
 
@@ -61,6 +66,7 @@ void inaktiv() {
 }
 
 void stoppKnappFunksjon() {
+    printf("stoppknapp kallet\n");
     int stoppTrukket = 1;
     elevio_stopLamp(1);
     // slett alle ubetjente bestillinger

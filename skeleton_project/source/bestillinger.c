@@ -12,15 +12,19 @@ void opprettBestilling(int floor, int button){
     switch(button) {
         case 0: // UP
             oppBestillinger[floor]=true;
+            printf("oppbestillinger=true for%d\n", floor);
         case 1: // DOWN
             nedBestillinger[floor]=true;
+            printf("nedbestillinger=true for%d\n", floor);
         case 2: // CAB // 01-03: endra fra 3 til 2, tror det er riktig? må sjekke
             innvendigeBestillinger[floor]=true;
+            printf("innvendigeBestillinger=true for%d\n", floor);
         default: break;
     }
 }
 
 int loopKnapper(bool kanVekkes) {
+    printf("loopknapper kallet\n");
     for(int f = 0; f < N_FLOORS; f++){
             for(int b = 0; b < N_BUTTONS; b++){
                 int btnPressed = elevio_callButton(f, b);
@@ -30,23 +34,28 @@ int loopKnapper(bool kanVekkes) {
             }
             if (kanVekkes==true){
                 if(finnesBestilling(f)) {
+                printf("loopknapper ferdig\n");
                 return 1;
             }
             }
         }
+    printf("loopknapper ferdig\n");
     return 0;
 }
 
 bool finnesBestilling(int floor){
     if (oppBestillinger[floor] || nedBestillinger[floor] || innvendigeBestillinger[floor]) {
+        printf("finnesbestillinger=true\n");
         return true;
     }
     else {
+        printf("finnesbestillinger=false\n");
         return false;
     }
 }
 
 bool sjekkEtasje(int floor, int retning){
+    printf("sjekketasje kallet\n");
     bool panel = innvendigeBestillinger[floor];
     bool opp = oppBestillinger[floor];
     bool ned = nedBestillinger[floor];
@@ -66,6 +75,7 @@ bool sjekkEtasje(int floor, int retning){
 }
 
 void clearBestillinger(int floor){
+    printf("clearbestillinger kallet\n");
     oppBestillinger[floor]=false;
     nedBestillinger[floor]=false;
     innvendigeBestillinger[floor]=false;
