@@ -56,8 +56,7 @@ int main(){
         }
         // TODO: implementer stoppknappfunksjon (finn også en annen måte å stoppe programmet)
         if(elevio_stopButton()){
-            elevio_motorDirection(DIRN_STOP);
-            break;
+            stoppKnappFunksjon();
         }
         
         nanosleep(&(struct timespec){0, 20*1000*1000}, NULL);

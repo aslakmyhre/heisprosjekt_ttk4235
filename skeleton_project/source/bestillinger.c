@@ -62,7 +62,10 @@ bool sjekkEtasje(int floor, int retning){
     bool opp = oppBestillinger[floor];
     bool ned = nedBestillinger[floor];
 
-    if (panel==true) {
+    if (finnesBestilling(floor) == false) {
+        return false;
+    }
+    else if (panel==true) {
         return true;
     }
     else if(opp==true && retning==1) {
@@ -72,7 +75,13 @@ bool sjekkEtasje(int floor, int retning){
         return true;
     }
     else {
-        return false;
+        for (int f = floor + retning; f >= 0 && f < 4; f += retning) {
+            //printf("+retning, %d\n", f);
+            if (finnesBestilling(f)) {
+                return false;
+            }
+        }
+        return true;
     }
 }
 
