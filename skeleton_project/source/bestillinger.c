@@ -126,21 +126,28 @@ int retningsVelger(int floor, int retning){
 
 //25-02: lagt inn return 0 dersom ingen bestillinger finnes (redundant, men greit å ha)
 int retningsVelger(int floor, int retning){
+    printf("retningsVelger\n");
+    printf("retning, %d\n", retning);
     int ret; 
     for (int f = floor + retning; f >= 0 && f < 4; f += retning) {
+        //printf("+retning, %d\n", f);
         if (finnesBestilling(f)) {
             ret= retning;
         }
     }
     for (int f = floor - retning; f >= 0 && f < 4; f -= retning) {
+        printf("-retning, %d\n", f);
         if (finnesBestilling(f)) {
             ret= -1 * retning;
         }
     }
+    
     if (ret) {
+        printf("ferdig retningsVelger\n");
         return ret;
     }
     else {
+        printf("ferdig retningsVelger\n");
         return 0; 
     }
 }

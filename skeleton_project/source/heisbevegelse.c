@@ -5,17 +5,19 @@
 #include "driver/elevio.h"
 #include "dor.h"
 
-int retning = 0; // retning er den forrige ikke-null retningen til heisen
+int retning = -1; // retning er den forrige ikke-null retningen til heisen
 
 int getRetning() {
     return retning;
 }
 
 void setRetning(int nyRetning) {
+    printf("setRetning()\n");
     if(retning != 0) {
         retning = nyRetning;
     }
     elevio_motorDirection(nyRetning);
+    printf("ferdig setRetning()%d\n", retning);
 }
 
 void ankomEtasje(int floor) {
@@ -31,7 +33,9 @@ void stoppPåEtasje(int floor){
     lukkDør();
     clearBestillinger(floor);
     inaktiv();
+    printf("ferdig med inaktiv\n");
     setRetning(retningsVelger(floor, retning));
+    printf("valgte retning%d\n", retning);
 }
 
 void oppstart(){
@@ -42,6 +46,7 @@ void oppstart(){
 }
 
 void inaktiv() {
+    printf("går inaktiv\n");
     while(1) {
         if (loopKnapper(true)==1) {
             break;

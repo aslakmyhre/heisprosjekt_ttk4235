@@ -6,12 +6,14 @@
 
 
 void åpneDør(){
+    printf("åpner dør\n");
     if (elevio_floorSensor()!=-1) {
         elevio_doorOpenLamp(1);
     }
 }
 
 void lukkDør(){
+    printf("lukker dør\n");
     int sekUtenObst = 0;
     while (sekUtenObst <= 3) {
         sleep(1);
