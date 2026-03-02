@@ -8,6 +8,7 @@ void ankomEtasje(int floor);
 
 void stoppPåEtasje(int floor);
 
+void oppstart();
 // inaktiv returnerer når den skal starte opp igjen
 void inaktiv();
 

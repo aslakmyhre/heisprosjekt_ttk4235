@@ -41,7 +41,20 @@ void stoppPåEtasje(int floor){
     printf("valgte retning%d\n", retning);
 }
 
-
+void oppstart(){
+    printf("starter oppstart()\n");
+    int floor = elevio_floorSensor();
+    if (floor==-1){
+        setRetning(-1);
+        printf("fra oppstart: setRetning():%d\n", floor);
+    }
+    while (floor == -1) {
+        floor = elevio_floorSensor();
+    }
+    ankomEtasje(floor);
+    inaktiv();
+    setRetning(retningsVelger(floor, retning));
+}
 
 void inaktiv() {
     printf("går inaktiv\n");

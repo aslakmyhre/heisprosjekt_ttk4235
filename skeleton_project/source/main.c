@@ -16,43 +16,14 @@ int main(){
     elevio_init();
     
     int forrigeEtasje = -1;
-
-    /*
-    //oppstart();
-    printf("starter oppstart()\n");
-    int floor = elevio_floorSensor();
-    if (floor==-1){
-        setRetning(-1);
-        printf("fra oppstart: setRetning():%d\n", floor);
-    }
-    while (floor == -1) {
-        floor = elevio_floorSensor();
-        loopKnapper(false);
-    }
-    printf("nådde etasje\n");
-    forrigeEtasje = floor;
-    //ankomEtasje(floor);
-    //inaktiv();
-    setRetning(0);
-    */
    
-    int oppstart = 1;
-    printf("starter oppstart()\n");
-    int floor = elevio_floorSensor();
-    if (floor==-1){
-        setRetning(-1);
-        printf("fra oppstart: setRetning():%d\n", floor);
-    }
+    oppstart();
 
     while(1){
         int floor = elevio_floorSensor();
         // sjekk om heisen har nådd en etasje
         if (floor!=-1 && (floor!=forrigeEtasje)) {
             forrigeEtasje = floor;
-            if(oppstart) {
-                inaktiv();
-                oppstart = 0;
-            }
             ankomEtasje(floor);
         }
         // bør være redundant ved ferdig heis, men greit å ha
