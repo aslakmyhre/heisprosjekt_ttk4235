@@ -6,7 +6,6 @@
 #include "heisbevegelse.h"
 #include "bestillinger.h"
 #include "dor.h"
-#include "lys.h"
 
 
 
@@ -36,23 +35,12 @@ int main(){
         // sjekk om hver knapp er trykket
 
         loopKnapper(false);
-        /*
-        for(int f = 0; f < N_FLOORS; f++){
-            for(int b = 0; b < N_BUTTONS; b++){
-                int btnPressed = elevio_callButton(f, b);
-                if(btnPressed){
-                    opprettBestilling(f, b); //
-                }
-            }
-        }
-        */
 
         if(elevio_obstruction()){
             elevio_stopLamp(1);
         } else {
             elevio_stopLamp(0);
         }
-        // TODO: implementer stoppknappfunksjon (finn også en annen måte å stoppe programmet)
         if(elevio_stopButton()){
             stoppKnappFunksjon();
         }
@@ -62,28 +50,3 @@ int main(){
 
     return 0;
 }
-
-
-//alternativ main
-/*
-int main() {
-    elevio_init();
-    
-    oppstart();
-
-    while(1){
-        int floor = elevio_floorSensor();
-        // sjekk om heisen har nådd en etasje
-        if (floor!=-1) {
-            ankomEtasje(floor);
-        }
-
-        inaktiv();
-        retningsvelger(f, r); //??? retning=0? krever endring i retningsvelger
-
-
-
-    }
-
-}
-*/

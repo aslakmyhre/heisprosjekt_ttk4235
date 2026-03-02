@@ -26,7 +26,6 @@ void lukkDør(){
         }
         // sjekk om hver knapp er trykket
         loopKnapper(false);
-        // TODO: legg til de andre nødvendige knappene her
     }
     // lukk døra
     elevio_doorOpenLamp(0);

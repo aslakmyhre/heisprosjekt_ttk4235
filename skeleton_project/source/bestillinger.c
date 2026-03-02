@@ -98,55 +98,6 @@ void clearBestillinger(int floor){
         elevio_buttonLamp(floor, b, 0);
     }
 }
-/*
-int retningsVelger(int floor, int retning){
-    switch (floor) {
-    case 0: 
-        retning = 1;
-        return retning;
-    case 1:
-        if (retning==1) {
-            if (finnesBestilling(floor+1)||finnesBestilling(floor+2)) {
-                retning = 1;
-                return retning;
-            }
-            else if (finnesBestilling(floor-1)) {
-                retning = -1;
-                return retning;
-            }
-            else {
-                retning = 0;
-                return retning;
-            }
-        }
-    case 2:
-        if (retning==1){
-            if (finnesBestilling(floor+1)){
-                retning = 1;
-                return retning;
-            }
-            else if (finnesBestilling(floor-1)||finnesBestilling(floor-2)) {
-                retning = -1;
-                return retning;
-            }
-            else {
-                retning = 0;
-                return retning;
-            }
-        }
-        else {
-            retning = -1;
-            return retning;
-        }
-    case 3:
-        retning = -1;
-        return retning;
-    default: return 0;
-    }
-}
-
-*/
-
 
 //25-02: lagt inn return 0 dersom ingen bestillinger finnes (redundant, men greit å ha)
 int retningsVelger(int floor, int retning){
