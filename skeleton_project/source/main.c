@@ -7,7 +7,10 @@
 #include "bestillinger.h"
 #include "dor.h"
 
-
+/**
+ * @file 
+ * @brief main fil brukes til å starte og holde programmet kjørende
+ */
 
 
 

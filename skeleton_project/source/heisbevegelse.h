@@ -1,5 +1,10 @@
 #pragma once
 
+/**
+ * @file 
+ * @brief Heisbevegelse
+ */
+
 int getRetning();
 
 void setRetning(int nyRetning);
