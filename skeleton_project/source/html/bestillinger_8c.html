@@ -101,11 +101,30 @@ $(function(){initNavTree('bestillinger_8c.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a8b5278890a53149b82626f28967cff39" id="r_a8b5278890a53149b82626f28967cff39"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8b5278890a53149b82626f28967cff39">opprettBestilling</a> (int floor, int button)</td></tr>
+<tr class="memdesc:a8b5278890a53149b82626f28967cff39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tar inn type knapp som ble trykket og hvilken etasje brukerer vil dra til <br  />
+ Typen (button) knapp bestemmer hvilken array (oppBestillinger, nedBestillinger, innvendigeBestillinger) bestillinger skal lagres <br  />
+ og etasjer (floor) bestemmer hvilken posisjon den skal ha <br  />
+ For eksempel vil en opp-knapp i 2. etasje lagres i oppBestillinger[1].  <br /></td></tr>
 <tr class="memitem:a6550cd6989418e13cf7516820a2185cb" id="r_a6550cd6989418e13cf7516820a2185cb"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a6550cd6989418e13cf7516820a2185cb">loopKnapper</a> (bool kanVekkes)</td></tr>
+<tr class="memdesc:a6550cd6989418e13cf7516820a2185cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Looper gjennom alle etasjer og knapptyper og sjekker om <a class="el" href="elevio_8c.html#a2485d7d293f03756a852ee1f796b9e1f">elevio_callButton()</a> for etasje og knapptype er true <br  />
+Kaller opprettBestillig() for knappen som er trykket.  <br /></td></tr>
 <tr class="memitem:aa5df81de8792fcfb717fbcd9beb632b6" id="r_aa5df81de8792fcfb717fbcd9beb632b6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa5df81de8792fcfb717fbcd9beb632b6">finnesBestilling</a> (int floor)</td></tr>
+<tr class="memdesc:aa5df81de8792fcfb717fbcd9beb632b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sjekker om det finnes en bestilling for etasjen som blir sjekket, altså om en av knappelistene har <br  />
+ true for elementet floor.  <br /></td></tr>
 <tr class="memitem:a0db49d791097a776198e0ea853cbf7ba" id="r_a0db49d791097a776198e0ea853cbf7ba"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0db49d791097a776198e0ea853cbf7ba">sjekkEtasje</a> (int floor, int <a class="el" href="heisbevegelse_8c.html#a5df43858714fc4dd9519d684e016005b">retning</a>)</td></tr>
+<tr class="memdesc:a0db49d791097a776198e0ea853cbf7ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sjekker om heisen skal stoppe i etasjen. Blir kalt av <a class="el" href="heisbevegelse_8c.html#a888c4526b5fb7bf9305f2b7e0c76481e" title="Kalles når elevio_floorSensor != 0, og kaller sjekkEtasje(floor) for å se om heisen skal stoppe i den...">ankomEtasje()</a> <br  />
+ Fungerer slik: Finnes det en panelbestilling eller en bestilling i samme retning? <br  />
+ Hvis ja: stopp. <br  />
+ Hvis nei: Finnes det en bestilling i etasjen i motsatt retning, men ingen andre bestillinger i samme retning? <br  />
+ Hvis ja: stopp. Hvis nei: ikke stopp.  <br /></td></tr>
 <tr class="memitem:a002453e89f713fefa0c86a08ba5a8b44" id="r_a002453e89f713fefa0c86a08ba5a8b44"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a002453e89f713fefa0c86a08ba5a8b44">clearBestillinger</a> (int floor)</td></tr>
+<tr class="memdesc:a002453e89f713fefa0c86a08ba5a8b44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fjerner alle bestillinger i etasjen (Setter alle elementet tilhørende denne etasjen i alle knappelistene til false) <br  />
+ Kalles når heisen stopper i en etasje, og brukes i <a class="el" href="heisbevegelse_8c.html#a9bcb63d4556b35109cbf73829ad6f887" title="Oppstarts-script Skrur av alle lys, sjekker om heisen er i en gyldig posisjon med elevio_floorSensor(...">oppstart()</a> til å skru av alle lamper.  <br /></td></tr>
 <tr class="memitem:ad43cb301526f245bfce92e60ff0136b2" id="r_ad43cb301526f245bfce92e60ff0136b2"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ad43cb301526f245bfce92e60ff0136b2">retningsVelger</a> (int floor, int <a class="el" href="heisbevegelse_8c.html#a5df43858714fc4dd9519d684e016005b">retning</a>)</td></tr>
+<tr class="memdesc:ad43cb301526f245bfce92e60ff0136b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bestemmer hvilken retning heisen skal kjøre. Kalles når heisen har stoppet. <br  />
+Sjekker om det finnes en bestilling i retningen heisen hadde før stoppet. Hvis ja: fortsett i samme retning <br  />
+ Hvis nei: Sjekker om det finnes en bestilling i mostatt retning. Hvis ja: bytt retning <br  />
+ Hvis nei: stå stille.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -129,7 +148,16 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bestillinger_8c_source.html#l00092">92</a> of file <a class="el" href="bestillinger_8c_source.html">bestillinger.c</a>.</p>
+<p>Fjerner alle bestillinger i etasjen (Setter alle elementet tilhørende denne etasjen i alle knappelistene til false) <br  />
+ Kalles når heisen stopper i en etasje, og brukes i <a class="el" href="heisbevegelse_8c.html#a9bcb63d4556b35109cbf73829ad6f887" title="Oppstarts-script Skrur av alle lys, sjekker om heisen er i en gyldig posisjon med elevio_floorSensor(...">oppstart()</a> til å skru av alle lamper. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">floor</td><td>Etasjen man fjerner bestillinger fra </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="bestillinger_8c_source.html#l00089">89</a> of file <a class="el" href="bestillinger_8c_source.html">bestillinger.c</a>.</p>
 
 </div>
 </div>
@@ -147,6 +175,18 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sjekker om det finnes en bestilling for etasjen som blir sjekket, altså om en av knappelistene har <br  />
+ true for elementet floor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">floor</td><td>Etasjen som blir sjekket </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true: En av listene har en bestilling i denne etasjen </dd>
+<dd>
+false: Ingen av listene har en bestilling i denne etasjen </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="bestillinger_8c_source.html#l00052">52</a> of file <a class="el" href="bestillinger_8c_source.html">bestillinger.c</a>.</p>
 
@@ -166,6 +206,16 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Looper gjennom alle etasjer og knapptyper og sjekker om <a class="el" href="elevio_8c.html#a2485d7d293f03756a852ee1f796b9e1f">elevio_callButton()</a> for etasje og knapptype er true <br  />
+Kaller opprettBestillig() for knappen som er trykket. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">kanVekkes</td><td>Dersom kanVekkes = true, vil løkken brytes når den oppdager at en knapp er trykket </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returnerer 1 kun dersom kanVekkes = true. Har ingen returverdi dersom kanVekkes = false </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="bestillinger_8c_source.html#l00032">32</a> of file <a class="el" href="bestillinger_8c_source.html">bestillinger.c</a>.</p>
 
@@ -190,6 +240,18 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Tar inn type knapp som ble trykket og hvilken etasje brukerer vil dra til <br  />
+ Typen (button) knapp bestemmer hvilken array (oppBestillinger, nedBestillinger, innvendigeBestillinger) bestillinger skal lagres <br  />
+ og etasjer (floor) bestemmer hvilken posisjon den skal ha <br  />
+ For eksempel vil en opp-knapp i 2. etasje lagres i oppBestillinger[1]. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">floor</td><td>Etasjen knappen hører til. 0 indeksert </td></tr>
+    <tr><td class="paramname">button</td><td>Type knapp </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="definition">Definition at line <a class="el" href="bestillinger_8c_source.html#l00011">11</a> of file <a class="el" href="bestillinger_8c_source.html">bestillinger.c</a>.</p>
 
 </div>
@@ -213,7 +275,20 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bestillinger_8c_source.html#l00103">103</a> of file <a class="el" href="bestillinger_8c_source.html">bestillinger.c</a>.</p>
+<p>Bestemmer hvilken retning heisen skal kjøre. Kalles når heisen har stoppet. <br  />
+Sjekker om det finnes en bestilling i retningen heisen hadde før stoppet. Hvis ja: fortsett i samme retning <br  />
+ Hvis nei: Sjekker om det finnes en bestilling i mostatt retning. Hvis ja: bytt retning <br  />
+ Hvis nei: stå stille. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">floor</td><td>Etasjen heisen står i </td></tr>
+    <tr><td class="paramname"><a class="el" href="heisbevegelse_8c.html#a5df43858714fc4dd9519d684e016005b">retning</a></td><td>Retningen heisen hadde før stans </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1: oppover, -1: nedover, 0: stille </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="bestillinger_8c_source.html#l00099">99</a> of file <a class="el" href="bestillinger_8c_source.html">bestillinger.c</a>.</p>
 
 </div>
 </div>
@@ -236,7 +311,23 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bestillinger_8c_source.html#l00063">63</a> of file <a class="el" href="bestillinger_8c_source.html">bestillinger.c</a>.</p>
+<p>Sjekker om heisen skal stoppe i etasjen. Blir kalt av <a class="el" href="heisbevegelse_8c.html#a888c4526b5fb7bf9305f2b7e0c76481e" title="Kalles når elevio_floorSensor != 0, og kaller sjekkEtasje(floor) for å se om heisen skal stoppe i den...">ankomEtasje()</a> <br  />
+ Fungerer slik: Finnes det en panelbestilling eller en bestilling i samme retning? <br  />
+ Hvis ja: stopp. <br  />
+ Hvis nei: Finnes det en bestilling i etasjen i motsatt retning, men ingen andre bestillinger i samme retning? <br  />
+ Hvis ja: stopp. Hvis nei: ikke stopp. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">floor</td><td>Etasjen som sjekkes </td></tr>
+    <tr><td class="paramname"><a class="el" href="heisbevegelse_8c.html#a5df43858714fc4dd9519d684e016005b">retning</a></td><td>Retningen heisen kjører i når den ankommer etasjen </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true: Heisen skal stoppe </dd>
+<dd>
+false: Heisen skal ikke stoppe </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="bestillinger_8c_source.html#l00061">61</a> of file <a class="el" href="bestillinger_8c_source.html">bestillinger.c</a>.</p>
 
 </div>
 </div>

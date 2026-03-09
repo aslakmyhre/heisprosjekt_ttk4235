@@ -54,82 +54,77 @@
 \DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00051}00051\ }
 \DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00052}\doxymbox{\hyperlink{bestillinger_8c_aa5df81de8792fcfb717fbcd9beb632b6}{00052}}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{bestillinger_8c_aa5df81de8792fcfb717fbcd9beb632b6}{finnesBestilling}}(\textcolor{keywordtype}{int}\ floor)\{}
 \DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{bestillinger_8c_a183d7d62bc40a37385dca6f967a9f312}{oppBestillinger}}[floor]\ ||\ \doxymbox{\hyperlink{bestillinger_8c_afb09e0b07c87e827be9166798eb3e974}{nedBestillinger}}[floor]\ ||\ \doxymbox{\hyperlink{bestillinger_8c_ab5ce54d6a3eeb40be5a4bf260669b19f}{innvendigeBestillinger}}[floor])\ \{}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{comment}{//printf("{}finnesbestillinger=true\(\backslash\)n"{});}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00056}00056\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00057}00057\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{comment}{//printf("{}finnesbestillinger=false\(\backslash\)n"{});}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00060}00060\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00061}00061\ \}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00062}00062\ }
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00063}\doxymbox{\hyperlink{bestillinger_8c_a0db49d791097a776198e0ea853cbf7ba}{00063}}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{bestillinger_8c_a0db49d791097a776198e0ea853cbf7ba}{sjekkEtasje}}(\textcolor{keywordtype}{int}\ floor,\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}})\{}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00064}00064\ \ \ \ \ printf(\textcolor{stringliteral}{"{}sjekketasje\ kallet\(\backslash\)n"{}});}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00065}00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ panel\ =\ \doxymbox{\hyperlink{bestillinger_8c_ab5ce54d6a3eeb40be5a4bf260669b19f}{innvendigeBestillinger}}[floor];}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00066}00066\ \ \ \ \ \textcolor{keywordtype}{bool}\ opp\ =\ \doxymbox{\hyperlink{bestillinger_8c_a183d7d62bc40a37385dca6f967a9f312}{oppBestillinger}}[floor];}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ ned\ =\ \doxymbox{\hyperlink{bestillinger_8c_afb09e0b07c87e827be9166798eb3e974}{nedBestillinger}}[floor];}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00068}00068\ }
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00069}00069\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{bestillinger_8c_aa5df81de8792fcfb717fbcd9beb632b6}{finnesBestilling}}(floor)\ ==\ \textcolor{keyword}{false})\ \{}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00071}00071\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (panel==\textcolor{keyword}{true})\ \{}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00074}00074\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00075}00075\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(opp==\textcolor{keyword}{true}\ \&\&\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}}==1)\ \{}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00077}00077\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(ned==\textcolor{keyword}{true}\ \&\&\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}}==-\/1)\ \{}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00080}00080\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ f\ =\ floor\ +\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}};\ f\ >=\ 0\ \&\&\ f\ <\ 4;\ f\ +=\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}})\ \{}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//printf("{}+retning,\ \%d\(\backslash\)n"{},\ f);}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{bestillinger_8c_aa5df81de8792fcfb717fbcd9beb632b6}{finnesBestilling}}(f))\ \{}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00089}00089\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00090}00090\ \}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00091}00091\ }
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00092}\doxymbox{\hyperlink{bestillinger_8c_a002453e89f713fefa0c86a08ba5a8b44}{00092}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{bestillinger_8c_a002453e89f713fefa0c86a08ba5a8b44}{clearBestillinger}}(\textcolor{keywordtype}{int}\ floor)\{}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00093}00093\ \ \ \ \ printf(\textcolor{stringliteral}{"{}clearbestillinger\ kallet\(\backslash\)n"{}});}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00094}00094\ \ \ \ \ \doxymbox{\hyperlink{bestillinger_8c_a183d7d62bc40a37385dca6f967a9f312}{oppBestillinger}}[floor]=\textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00095}00095\ \ \ \ \ \doxymbox{\hyperlink{bestillinger_8c_afb09e0b07c87e827be9166798eb3e974}{nedBestillinger}}[floor]=\textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00096}00096\ \ \ \ \ \doxymbox{\hyperlink{bestillinger_8c_ab5ce54d6a3eeb40be5a4bf260669b19f}{innvendigeBestillinger}}[floor]=\textcolor{keyword}{false};}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00097}00097\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ b\ =\ 0;\ b\ <=\ 2;\ ++b)\ \{\ \textcolor{comment}{//\ slukk\ knapplys}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{elevio_8c_a182079eb4c29f71ff3b5049a2fd082a3}{elevio\_buttonLamp}}(floor,\ b,\ 0);}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00099}00099\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00100}00100\ \}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00101}00101\ }
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00102}00102\ \textcolor{comment}{//25-\/02:\ lagt\ inn\ return\ 0\ dersom\ ingen\ bestillinger\ finnes\ (redundant,\ men\ greit\ å\ ha)}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00103}\doxymbox{\hyperlink{bestillinger_8c_ad43cb301526f245bfce92e60ff0136b2}{00103}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{bestillinger_8c_ad43cb301526f245bfce92e60ff0136b2}{retningsVelger}}(\textcolor{keywordtype}{int}\ floor,\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}})\{}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00104}00104\ \ \ \ \ printf(\textcolor{stringliteral}{"{}retningsVelger\(\backslash\)n"{}});}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00105}00105\ \ \ \ \ printf(\textcolor{stringliteral}{"{}retning,\ \%d\(\backslash\)n"{}},\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}});}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00106}00106\ \ \ \ \ \textcolor{keywordtype}{int}\ ret\ =\ 0;\ }
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00107}00107\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ f\ =\ floor\ +\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}};\ f\ >=\ 0\ \&\&\ f\ <\ 4;\ f\ +=\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}})\ \{}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{comment}{//printf("{}+retning,\ \%d\(\backslash\)n"{},\ f);}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{bestillinger_8c_aa5df81de8792fcfb717fbcd9beb632b6}{finnesBestilling}}(f))\ \{}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ ret=\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}};}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00112}00112\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00113}00113\ \ \ \ \ \textcolor{keywordflow}{if}\ (ret\ ==\ 0)\ \{}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ f\ =\ floor\ -\/\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}};\ f\ >=\ 0\ \&\&\ f\ <\ 4;\ f\ -\/=\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}})\ \{}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}-\/retning,\ \%d\(\backslash\)n"{}},\ f);}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{bestillinger_8c_aa5df81de8792fcfb717fbcd9beb632b6}{finnesBestilling}}(f))\ \{}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ret=\ -\/1\ *\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}};}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00055}00055\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00056}00056\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00058}00058\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00059}00059\ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00061}\doxymbox{\hyperlink{bestillinger_8c_a0db49d791097a776198e0ea853cbf7ba}{00061}}\ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{bestillinger_8c_a0db49d791097a776198e0ea853cbf7ba}{sjekkEtasje}}(\textcolor{keywordtype}{int}\ floor,\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}})\{}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00062}00062\ \ \ \ \ printf(\textcolor{stringliteral}{"{}sjekketasje\ kallet\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00063}00063\ \ \ \ \ \textcolor{keywordtype}{bool}\ panel\ =\ \doxymbox{\hyperlink{bestillinger_8c_ab5ce54d6a3eeb40be5a4bf260669b19f}{innvendigeBestillinger}}[floor];}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00064}00064\ \ \ \ \ \textcolor{keywordtype}{bool}\ opp\ =\ \doxymbox{\hyperlink{bestillinger_8c_a183d7d62bc40a37385dca6f967a9f312}{oppBestillinger}}[floor];}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00065}00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ ned\ =\ \doxymbox{\hyperlink{bestillinger_8c_afb09e0b07c87e827be9166798eb3e974}{nedBestillinger}}[floor];}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{bestillinger_8c_aa5df81de8792fcfb717fbcd9beb632b6}{finnesBestilling}}(floor)\ ==\ \textcolor{keyword}{false})\ \{}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (panel==\textcolor{keyword}{true})\ \{}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00072}00072\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(opp==\textcolor{keyword}{true}\ \&\&\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}}==1)\ \{}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00075}00075\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00076}00076\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}(ned==\textcolor{keyword}{true}\ \&\&\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}}==-\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00079}00079\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ f\ =\ floor\ +\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}};\ f\ >=\ 0\ \&\&\ f\ <\ 4;\ f\ +=\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}})\ \{}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{bestillinger_8c_aa5df81de8792fcfb717fbcd9beb632b6}{finnesBestilling}}(f))\ \{}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00086}00086\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00087}00087\ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00089}\doxymbox{\hyperlink{bestillinger_8c_a002453e89f713fefa0c86a08ba5a8b44}{00089}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{bestillinger_8c_a002453e89f713fefa0c86a08ba5a8b44}{clearBestillinger}}(\textcolor{keywordtype}{int}\ floor)\{}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00090}00090\ \ \ \ \ printf(\textcolor{stringliteral}{"{}clearbestillinger\ kallet\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00091}00091\ \ \ \ \ \doxymbox{\hyperlink{bestillinger_8c_a183d7d62bc40a37385dca6f967a9f312}{oppBestillinger}}[floor]=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00092}00092\ \ \ \ \ \doxymbox{\hyperlink{bestillinger_8c_afb09e0b07c87e827be9166798eb3e974}{nedBestillinger}}[floor]=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00093}00093\ \ \ \ \ \doxymbox{\hyperlink{bestillinger_8c_ab5ce54d6a3eeb40be5a4bf260669b19f}{innvendigeBestillinger}}[floor]=\textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00094}00094\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ b\ =\ 0;\ b\ <=\ 2;\ ++b)\ \{\ \textcolor{comment}{//\ slukk\ knapplys}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00095}00095\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{elevio_8c_a182079eb4c29f71ff3b5049a2fd082a3}{elevio\_buttonLamp}}(floor,\ b,\ 0);}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00096}00096\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00097}00097\ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00099}\doxymbox{\hyperlink{bestillinger_8c_ad43cb301526f245bfce92e60ff0136b2}{00099}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{bestillinger_8c_ad43cb301526f245bfce92e60ff0136b2}{retningsVelger}}(\textcolor{keywordtype}{int}\ floor,\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}})\{}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00100}00100\ \ \ \ \ printf(\textcolor{stringliteral}{"{}retningsVelger\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00101}00101\ \ \ \ \ printf(\textcolor{stringliteral}{"{}retning,\ \%d\(\backslash\)n"{}},\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}});}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00102}00102\ \ \ \ \ \textcolor{keywordtype}{int}\ ret\ =\ 0;\ }
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00103}00103\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ f\ =\ floor\ +\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}};\ f\ >=\ 0\ \&\&\ f\ <\ 4;\ f\ +=\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}})\ \{}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00104}00104\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{bestillinger_8c_aa5df81de8792fcfb717fbcd9beb632b6}{finnesBestilling}}(f))\ \{}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ ret=\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}};}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00107}00107\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{if}\ (ret\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ f\ =\ floor\ -\/\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}};\ f\ >=\ 0\ \&\&\ f\ <\ 4;\ f\ -\/=\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}})\ \{}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}-\/retning,\ \%d\(\backslash\)n"{}},\ f);}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{bestillinger_8c_aa5df81de8792fcfb717fbcd9beb632b6}{finnesBestilling}}(f))\ \{}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ret=\ -\/1\ *\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}};}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00114}00114\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00115}00115\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00116}00116\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00117}00117\ \ \ \ \ \textcolor{keywordflow}{if}\ (ret)\ \{}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}ferdig\ retningsVelger\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
 \DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00120}00120\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00121}00121\ \ \ \ \ }
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00122}00122\ \ \ \ \ \textcolor{keywordflow}{if}\ (ret)\ \{}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}ferdig\ retningsVelger\(\backslash\)n"{}});}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00124}00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00125}00125\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00126}00126\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}ferdig\ retningsVelger\(\backslash\)n"{}});}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ }
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00129}00129\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00130}00130\ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00121}00121\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}ferdig\ retningsVelger\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;\ }
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00124}00124\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{bestillinger_8c_source_l00125}00125\ \}}
 
 \end{DoxyCode}
