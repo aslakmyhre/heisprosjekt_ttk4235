@@ -1,10 +1,9 @@
-#pragma once
-
 /**
  * @file 
  * @brief Heisbevegelse definerer og deklarerer alle funksjoner som omhandler bevegelse av heisen
  */
 
+#pragma once
 
 /**
  * @brief Kalles når man må vite hvilken retning man kjører i

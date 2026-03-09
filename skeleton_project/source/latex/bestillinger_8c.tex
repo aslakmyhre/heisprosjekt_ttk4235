@@ -1,0 +1,130 @@
+\doxysection{bestillinger.\+c File Reference}
+\hypertarget{bestillinger_8c}{}\label{bestillinger_8c}\index{bestillinger.c@{bestillinger.c}}
+{\ttfamily \+\#include "{}bestillinger.\+h"{}}\newline
+{\ttfamily \+\#include $<$stdio.\+h$>$}\newline
+{\ttfamily \+\#include "{}driver/\+elevio.\+h"{}}\newline
+{\ttfamily \+\#include "{}heisbevegelse.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{bestillinger_8c_a8b5278890a53149b82626f28967cff39}{opprett\+Bestilling}} (int floor, int button)
+\item 
+int \doxymbox{\hyperlink{bestillinger_8c_a6550cd6989418e13cf7516820a2185cb}{loop\+Knapper}} (bool kan\+Vekkes)
+\item 
+bool \doxymbox{\hyperlink{bestillinger_8c_aa5df81de8792fcfb717fbcd9beb632b6}{finnes\+Bestilling}} (int floor)
+\item 
+bool \doxymbox{\hyperlink{bestillinger_8c_a0db49d791097a776198e0ea853cbf7ba}{sjekk\+Etasje}} (int floor, int \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}})
+\item 
+void \doxymbox{\hyperlink{bestillinger_8c_a002453e89f713fefa0c86a08ba5a8b44}{clear\+Bestillinger}} (int floor)
+\item 
+int \doxymbox{\hyperlink{bestillinger_8c_ad43cb301526f245bfce92e60ff0136b2}{retnings\+Velger}} (int floor, int \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \doxymbox{\hyperlink{bestillinger_8c_a183d7d62bc40a37385dca6f967a9f312}{opp\+Bestillinger}} \+[$\,$]\+ = \{false, false, false, false\}
+\item 
+bool \doxymbox{\hyperlink{bestillinger_8c_afb09e0b07c87e827be9166798eb3e974}{ned\+Bestillinger}} \+[$\,$]\+ = \{false, false, false, false\}
+\item 
+bool \doxymbox{\hyperlink{bestillinger_8c_ab5ce54d6a3eeb40be5a4bf260669b19f}{innvendige\+Bestillinger}} \+[$\,$]\+ = \{false, false, false, false\}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{bestillinger_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{bestillinger_8c_a002453e89f713fefa0c86a08ba5a8b44}\index{bestillinger.c@{bestillinger.c}!clearBestillinger@{clearBestillinger}}
+\index{clearBestillinger@{clearBestillinger}!bestillinger.c@{bestillinger.c}}
+\doxysubsubsection{\texorpdfstring{clearBestillinger()}{clearBestillinger()}}
+{\footnotesize\ttfamily \label{bestillinger_8c_a002453e89f713fefa0c86a08ba5a8b44} 
+void clear\+Bestillinger (\begin{DoxyParamCaption}\item[{int}]{floor}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{bestillinger_8c_source_l00092}{92}} of file \doxymbox{\hyperlink{bestillinger_8c_source}{bestillinger.\+c}}.
+
+\Hypertarget{bestillinger_8c_aa5df81de8792fcfb717fbcd9beb632b6}\index{bestillinger.c@{bestillinger.c}!finnesBestilling@{finnesBestilling}}
+\index{finnesBestilling@{finnesBestilling}!bestillinger.c@{bestillinger.c}}
+\doxysubsubsection{\texorpdfstring{finnesBestilling()}{finnesBestilling()}}
+{\footnotesize\ttfamily \label{bestillinger_8c_aa5df81de8792fcfb717fbcd9beb632b6} 
+bool finnes\+Bestilling (\begin{DoxyParamCaption}\item[{int}]{floor}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{bestillinger_8c_source_l00052}{52}} of file \doxymbox{\hyperlink{bestillinger_8c_source}{bestillinger.\+c}}.
+
+\Hypertarget{bestillinger_8c_a6550cd6989418e13cf7516820a2185cb}\index{bestillinger.c@{bestillinger.c}!loopKnapper@{loopKnapper}}
+\index{loopKnapper@{loopKnapper}!bestillinger.c@{bestillinger.c}}
+\doxysubsubsection{\texorpdfstring{loopKnapper()}{loopKnapper()}}
+{\footnotesize\ttfamily \label{bestillinger_8c_a6550cd6989418e13cf7516820a2185cb} 
+int loop\+Knapper (\begin{DoxyParamCaption}\item[{bool}]{kan\+Vekkes}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{bestillinger_8c_source_l00032}{32}} of file \doxymbox{\hyperlink{bestillinger_8c_source}{bestillinger.\+c}}.
+
+\Hypertarget{bestillinger_8c_a8b5278890a53149b82626f28967cff39}\index{bestillinger.c@{bestillinger.c}!opprettBestilling@{opprettBestilling}}
+\index{opprettBestilling@{opprettBestilling}!bestillinger.c@{bestillinger.c}}
+\doxysubsubsection{\texorpdfstring{opprettBestilling()}{opprettBestilling()}}
+{\footnotesize\ttfamily \label{bestillinger_8c_a8b5278890a53149b82626f28967cff39} 
+void opprett\+Bestilling (\begin{DoxyParamCaption}\item[{int}]{floor}{, }\item[{int}]{button}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{bestillinger_8c_source_l00011}{11}} of file \doxymbox{\hyperlink{bestillinger_8c_source}{bestillinger.\+c}}.
+
+\Hypertarget{bestillinger_8c_ad43cb301526f245bfce92e60ff0136b2}\index{bestillinger.c@{bestillinger.c}!retningsVelger@{retningsVelger}}
+\index{retningsVelger@{retningsVelger}!bestillinger.c@{bestillinger.c}}
+\doxysubsubsection{\texorpdfstring{retningsVelger()}{retningsVelger()}}
+{\footnotesize\ttfamily \label{bestillinger_8c_ad43cb301526f245bfce92e60ff0136b2} 
+int retnings\+Velger (\begin{DoxyParamCaption}\item[{int}]{floor}{, }\item[{int}]{retning}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{bestillinger_8c_source_l00103}{103}} of file \doxymbox{\hyperlink{bestillinger_8c_source}{bestillinger.\+c}}.
+
+\Hypertarget{bestillinger_8c_a0db49d791097a776198e0ea853cbf7ba}\index{bestillinger.c@{bestillinger.c}!sjekkEtasje@{sjekkEtasje}}
+\index{sjekkEtasje@{sjekkEtasje}!bestillinger.c@{bestillinger.c}}
+\doxysubsubsection{\texorpdfstring{sjekkEtasje()}{sjekkEtasje()}}
+{\footnotesize\ttfamily \label{bestillinger_8c_a0db49d791097a776198e0ea853cbf7ba} 
+bool sjekk\+Etasje (\begin{DoxyParamCaption}\item[{int}]{floor}{, }\item[{int}]{retning}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{bestillinger_8c_source_l00063}{63}} of file \doxymbox{\hyperlink{bestillinger_8c_source}{bestillinger.\+c}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{bestillinger_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{bestillinger_8c_ab5ce54d6a3eeb40be5a4bf260669b19f}\index{bestillinger.c@{bestillinger.c}!innvendigeBestillinger@{innvendigeBestillinger}}
+\index{innvendigeBestillinger@{innvendigeBestillinger}!bestillinger.c@{bestillinger.c}}
+\doxysubsubsection{\texorpdfstring{innvendigeBestillinger}{innvendigeBestillinger}}
+{\footnotesize\ttfamily \label{bestillinger_8c_ab5ce54d6a3eeb40be5a4bf260669b19f} 
+bool innvendige\+Bestillinger\+[$\,$]\+ = \{false, false, false, false\}}
+
+
+
+Definition at line \doxymbox{\hyperlink{bestillinger_8c_source_l00008}{8}} of file \doxymbox{\hyperlink{bestillinger_8c_source}{bestillinger.\+c}}.
+
+\Hypertarget{bestillinger_8c_afb09e0b07c87e827be9166798eb3e974}\index{bestillinger.c@{bestillinger.c}!nedBestillinger@{nedBestillinger}}
+\index{nedBestillinger@{nedBestillinger}!bestillinger.c@{bestillinger.c}}
+\doxysubsubsection{\texorpdfstring{nedBestillinger}{nedBestillinger}}
+{\footnotesize\ttfamily \label{bestillinger_8c_afb09e0b07c87e827be9166798eb3e974} 
+bool ned\+Bestillinger\+[$\,$]\+ = \{false, false, false, false\}}
+
+
+
+Definition at line \doxymbox{\hyperlink{bestillinger_8c_source_l00007}{7}} of file \doxymbox{\hyperlink{bestillinger_8c_source}{bestillinger.\+c}}.
+
+\Hypertarget{bestillinger_8c_a183d7d62bc40a37385dca6f967a9f312}\index{bestillinger.c@{bestillinger.c}!oppBestillinger@{oppBestillinger}}
+\index{oppBestillinger@{oppBestillinger}!bestillinger.c@{bestillinger.c}}
+\doxysubsubsection{\texorpdfstring{oppBestillinger}{oppBestillinger}}
+{\footnotesize\ttfamily \label{bestillinger_8c_a183d7d62bc40a37385dca6f967a9f312} 
+bool opp\+Bestillinger\+[$\,$]\+ = \{false, false, false, false\}}
+
+
+
+Definition at line \doxymbox{\hyperlink{bestillinger_8c_source_l00006}{6}} of file \doxymbox{\hyperlink{bestillinger_8c_source}{bestillinger.\+c}}.
+
