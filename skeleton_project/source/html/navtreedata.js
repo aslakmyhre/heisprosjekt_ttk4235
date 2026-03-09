@@ -24,16 +24,12 @@
 */
 var NAVTREE =
 [
-  [ "My Project", "index.html", [
-    [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
-    ] ]
-  ] ]
+  [ "Heislab TTK4235 Gruppe 46", "index.html", ]
 ];
 
 var NAVTREEINDEX =
 [
-"bestillinger_8h_source.html"
+"index.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
