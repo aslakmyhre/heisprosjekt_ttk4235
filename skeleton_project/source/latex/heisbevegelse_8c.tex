@@ -1,0 +1,253 @@
+\doxysection{heisbevegelse.\+c File Reference}
+\hypertarget{heisbevegelse_8c}{}\label{heisbevegelse_8c}\index{heisbevegelse.c@{heisbevegelse.c}}
+{\ttfamily \+\#include $<$stdio.\+h$>$}\newline
+{\ttfamily \+\#include $<$unistd.\+h$>$}\newline
+{\ttfamily \+\#include "{}heisbevegelse.\+h"{}}\newline
+{\ttfamily \+\#include "{}bestillinger.\+h"{}}\newline
+{\ttfamily \+\#include "{}driver/\+elevio.\+h"{}}\newline
+{\ttfamily \+\#include "{}dor.\+h"{}}\newline
+{\ttfamily \+\#include $<$time.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{heisbevegelse_8c_a844350fa7bac51f28954e2066f132f21}{get\+Retning}} ()
+\begin{DoxyCompactList}\small\item\em Kalles når man må vite hvilken retning man kjører i. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{heisbevegelse_8c_ac6cfe68f089ea6cd52775480c9ccfb1e}{set\+Retning}} (int ny\+Retning)
+\begin{DoxyCompactList}\small\item\em Bestemmer hvilken retning heisen skal bevege seg i. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{heisbevegelse_8c_a888c4526b5fb7bf9305f2b7e0c76481e}{ankom\+Etasje}} (int floor)
+\begin{DoxyCompactList}\small\item\em Kalles når elevio\+\_\+floor\+Sensor != 0, og kaller sjekk\+Etasje(floor) for å se om heisen skal stoppe i denne etasjen. ~\newline
+Hvis ja kaller \doxylink{heisbevegelse_8h_ab015b5c85b0c642eecb1781d7544517b}{stopp\+På\+Etasje()} ~\newline
+Skrur på etasjelys, \doxylink{elevio_8c_a184a3b9bd68d9f38ada735288059b823}{elevio\+\_\+floor\+Indicator()}. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{heisbevegelse_8c_ab015b5c85b0c642eecb1781d7544517b}{stopp\+På\+Etasje}} (int floor)
+\begin{DoxyCompactList}\small\item\em Kalles av ankom\+Etasje(floor) når heisen skal stoppe. ~\newline
+Kaller funksjonene ~\newline
+ \doxylink{heisbevegelse_8h_ac6cfe68f089ea6cd52775480c9ccfb1e}{set\+Retning()}; \#0 ~\newline
+ \doxylink{bestillinger_8c_a002453e89f713fefa0c86a08ba5a8b44}{clear\+Bestillinger()}; ~\newline
+ \doxylink{dor_8c_aecd6e7e615ca7cd6a51ffeaff5d9ed94}{åpne\+Dør()}; ~\newline
+ \doxylink{dor_8c_a3b73aa237ab55c7e95647c1b394ccbd8}{lukk\+Dør()}; ~\newline
+ \doxylink{heisbevegelse_8h_a9a6a8bc16560afe8d189ce2b1382ebde}{inaktiv()}; ~\newline
+som får heisen til å stoppe, fjerne bestillinger i etasjen, åpner/\+lukker dør og starter inaktiv modus. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{heisbevegelse_8c_a9bcb63d4556b35109cbf73829ad6f887}{oppstart}} ()
+\begin{DoxyCompactList}\small\item\em Oppstarts-\/script ~\newline
+Skrur av alle lys, sjekker om heisen er i en gyldig posisjon med \doxylink{elevio_8c_a6c30a3c0241ebf37a9014679e1bf288d}{elevio\+\_\+floor\+Sensor()} ~\newline
+ Hvis posisjonen er ugyldig:\+ Setter retning nedover, alltid, frem til den treffer en etasje. ~\newline
+ Ignorerer alle input frem til gyldig etasje er funnet ~\newline
+Når heisen er i gyldig posisjon:\+ Kaller \doxylink{heisbevegelse_8h_a888c4526b5fb7bf9305f2b7e0c76481e}{ankom\+Etasje()} for å skru på etasjelys ~\newline
+Går inaktiv. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{heisbevegelse_8c_a9a6a8bc16560afe8d189ce2b1382ebde}{inaktiv}} ()
+\begin{DoxyCompactList}\small\item\em Inaktiv kalles når det ikke er noen bestillinger, eller det ikke er åpenbart at det finnes noen bestillinger ~\newline
+Stopper heisen, \doxylink{heisbevegelse_8h_ac6cfe68f089ea6cd52775480c9ccfb1e}{set\+Retning()} \#0 ~\newline
+Kjører en evig løkke gjennom alle knapper, loop\+Knapper(kan\+Vekkes=true) ~\newline
+Når en knapp trykkes, breakes inaktiv. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{heisbevegelse_8c_ad008429b16798f31470c9cfd48ed8491}{stopp\+Knapp\+Funksjon}} ()
+\begin{DoxyCompactList}\small\item\em Implementerer logikk for stopp-\/knapp. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{heisbevegelse_8c_a51c836d8645e79ddf8436af90a114f0a}{set\+Forrige\+Etasje}} (int ny\+Forrige\+Etasje)
+\begin{DoxyCompactList}\small\item\em Oppdaterer hva den forrige etasjen var. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{heisbevegelse_8c_a89836e253b4fc108ae8a2c33db370e5b}{get\+Forrige\+Etasje}} ()
+\begin{DoxyCompactList}\small\item\em Henter verdien for hva den forrige etasjen var. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \doxymbox{\hyperlink{heisbevegelse_8c_a3dc1769e994f67e5b17086b1a8cc550b}{forrige\+Etasje}} = -\/1
+\item 
+int \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}} = -\/1
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{heisbevegelse_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{heisbevegelse_8c_a888c4526b5fb7bf9305f2b7e0c76481e}\index{heisbevegelse.c@{heisbevegelse.c}!ankomEtasje@{ankomEtasje}}
+\index{ankomEtasje@{ankomEtasje}!heisbevegelse.c@{heisbevegelse.c}}
+\doxysubsubsection{\texorpdfstring{ankomEtasje()}{ankomEtasje()}}
+{\footnotesize\ttfamily \label{heisbevegelse_8c_a888c4526b5fb7bf9305f2b7e0c76481e} 
+void ankom\+Etasje (\begin{DoxyParamCaption}\item[{int}]{floor}{}\end{DoxyParamCaption})}
+
+
+
+Kalles når elevio\+\_\+floor\+Sensor != 0, og kaller sjekk\+Etasje(floor) for å se om heisen skal stoppe i denne etasjen. ~\newline
+Hvis ja kaller \doxylink{heisbevegelse_8h_ab015b5c85b0c642eecb1781d7544517b}{stopp\+På\+Etasje()} ~\newline
+Skrur på etasjelys, \doxylink{elevio_8c_a184a3b9bd68d9f38ada735288059b823}{elevio\+\_\+floor\+Indicator()}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em floor} & Etasjen som er ankommet \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{heisbevegelse_8c_source_l00026}{26}} of file \doxymbox{\hyperlink{heisbevegelse_8c_source}{heisbevegelse.\+c}}.
+
+\Hypertarget{heisbevegelse_8c_a89836e253b4fc108ae8a2c33db370e5b}\index{heisbevegelse.c@{heisbevegelse.c}!getForrigeEtasje@{getForrigeEtasje}}
+\index{getForrigeEtasje@{getForrigeEtasje}!heisbevegelse.c@{heisbevegelse.c}}
+\doxysubsubsection{\texorpdfstring{getForrigeEtasje()}{getForrigeEtasje()}}
+{\footnotesize\ttfamily \label{heisbevegelse_8c_a89836e253b4fc108ae8a2c33db370e5b} 
+int get\+Forrige\+Etasje (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Henter verdien for hva den forrige etasjen var. 
+
+\begin{DoxyReturn}{Returns}
+int, forrige etasje 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{heisbevegelse_8c_source_l00121}{121}} of file \doxymbox{\hyperlink{heisbevegelse_8c_source}{heisbevegelse.\+c}}.
+
+\Hypertarget{heisbevegelse_8c_a844350fa7bac51f28954e2066f132f21}\index{heisbevegelse.c@{heisbevegelse.c}!getRetning@{getRetning}}
+\index{getRetning@{getRetning}!heisbevegelse.c@{heisbevegelse.c}}
+\doxysubsubsection{\texorpdfstring{getRetning()}{getRetning()}}
+{\footnotesize\ttfamily \label{heisbevegelse_8c_a844350fa7bac51f28954e2066f132f21} 
+int get\+Retning (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Kalles når man må vite hvilken retning man kjører i. 
+
+\begin{DoxyReturn}{Returns}
+int retning 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{heisbevegelse_8c_source_l00013}{13}} of file \doxymbox{\hyperlink{heisbevegelse_8c_source}{heisbevegelse.\+c}}.
+
+\Hypertarget{heisbevegelse_8c_a9a6a8bc16560afe8d189ce2b1382ebde}\index{heisbevegelse.c@{heisbevegelse.c}!inaktiv@{inaktiv}}
+\index{inaktiv@{inaktiv}!heisbevegelse.c@{heisbevegelse.c}}
+\doxysubsubsection{\texorpdfstring{inaktiv()}{inaktiv()}}
+{\footnotesize\ttfamily \label{heisbevegelse_8c_a9a6a8bc16560afe8d189ce2b1382ebde} 
+void inaktiv (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Inaktiv kalles når det ikke er noen bestillinger, eller det ikke er åpenbart at det finnes noen bestillinger ~\newline
+Stopper heisen, \doxylink{heisbevegelse_8h_ac6cfe68f089ea6cd52775480c9ccfb1e}{set\+Retning()} \#0 ~\newline
+Kjører en evig løkke gjennom alle knapper, loop\+Knapper(kan\+Vekkes=true) ~\newline
+Når en knapp trykkes, breakes inaktiv. 
+
+
+
+Definition at line \doxymbox{\hyperlink{heisbevegelse_8c_source_l00070}{70}} of file \doxymbox{\hyperlink{heisbevegelse_8c_source}{heisbevegelse.\+c}}.
+
+\Hypertarget{heisbevegelse_8c_a9bcb63d4556b35109cbf73829ad6f887}\index{heisbevegelse.c@{heisbevegelse.c}!oppstart@{oppstart}}
+\index{oppstart@{oppstart}!heisbevegelse.c@{heisbevegelse.c}}
+\doxysubsubsection{\texorpdfstring{oppstart()}{oppstart()}}
+{\footnotesize\ttfamily \label{heisbevegelse_8c_a9bcb63d4556b35109cbf73829ad6f887} 
+void oppstart (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Oppstarts-\/script ~\newline
+Skrur av alle lys, sjekker om heisen er i en gyldig posisjon med \doxylink{elevio_8c_a6c30a3c0241ebf37a9014679e1bf288d}{elevio\+\_\+floor\+Sensor()} ~\newline
+ Hvis posisjonen er ugyldig:\+ Setter retning nedover, alltid, frem til den treffer en etasje. ~\newline
+ Ignorerer alle input frem til gyldig etasje er funnet ~\newline
+Når heisen er i gyldig posisjon:\+ Kaller \doxylink{heisbevegelse_8h_a888c4526b5fb7bf9305f2b7e0c76481e}{ankom\+Etasje()} for å skru på etasjelys ~\newline
+Går inaktiv. 
+
+
+
+Definition at line \doxymbox{\hyperlink{heisbevegelse_8c_source_l00047}{47}} of file \doxymbox{\hyperlink{heisbevegelse_8c_source}{heisbevegelse.\+c}}.
+
+\Hypertarget{heisbevegelse_8c_a51c836d8645e79ddf8436af90a114f0a}\index{heisbevegelse.c@{heisbevegelse.c}!setForrigeEtasje@{setForrigeEtasje}}
+\index{setForrigeEtasje@{setForrigeEtasje}!heisbevegelse.c@{heisbevegelse.c}}
+\doxysubsubsection{\texorpdfstring{setForrigeEtasje()}{setForrigeEtasje()}}
+{\footnotesize\ttfamily \label{heisbevegelse_8c_a51c836d8645e79ddf8436af90a114f0a} 
+void set\+Forrige\+Etasje (\begin{DoxyParamCaption}\item[{int}]{ny\+Forrige\+Etasje}{}\end{DoxyParamCaption})}
+
+
+
+Oppdaterer hva den forrige etasjen var. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ny\+Forrige\+Etasje} & Ny verdi \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{heisbevegelse_8c_source_l00117}{117}} of file \doxymbox{\hyperlink{heisbevegelse_8c_source}{heisbevegelse.\+c}}.
+
+\Hypertarget{heisbevegelse_8c_ac6cfe68f089ea6cd52775480c9ccfb1e}\index{heisbevegelse.c@{heisbevegelse.c}!setRetning@{setRetning}}
+\index{setRetning@{setRetning}!heisbevegelse.c@{heisbevegelse.c}}
+\doxysubsubsection{\texorpdfstring{setRetning()}{setRetning()}}
+{\footnotesize\ttfamily \label{heisbevegelse_8c_ac6cfe68f089ea6cd52775480c9ccfb1e} 
+void set\+Retning (\begin{DoxyParamCaption}\item[{int}]{ny\+Retning}{}\end{DoxyParamCaption})}
+
+
+
+Bestemmer hvilken retning heisen skal bevege seg i. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ny\+Retning} & Retningen som skal brukes \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{heisbevegelse_8c_source_l00017}{17}} of file \doxymbox{\hyperlink{heisbevegelse_8c_source}{heisbevegelse.\+c}}.
+
+\Hypertarget{heisbevegelse_8c_ad008429b16798f31470c9cfd48ed8491}\index{heisbevegelse.c@{heisbevegelse.c}!stoppKnappFunksjon@{stoppKnappFunksjon}}
+\index{stoppKnappFunksjon@{stoppKnappFunksjon}!heisbevegelse.c@{heisbevegelse.c}}
+\doxysubsubsection{\texorpdfstring{stoppKnappFunksjon()}{stoppKnappFunksjon()}}
+{\footnotesize\ttfamily \label{heisbevegelse_8c_ad008429b16798f31470c9cfd48ed8491} 
+void stopp\+Knapp\+Funksjon (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Implementerer logikk for stopp-\/knapp. 
+
+
+
+Definition at line \doxymbox{\hyperlink{heisbevegelse_8c_source_l00088}{88}} of file \doxymbox{\hyperlink{heisbevegelse_8c_source}{heisbevegelse.\+c}}.
+
+\Hypertarget{heisbevegelse_8c_ab015b5c85b0c642eecb1781d7544517b}\index{heisbevegelse.c@{heisbevegelse.c}!stoppPåEtasje@{stoppPåEtasje}}
+\index{stoppPåEtasje@{stoppPåEtasje}!heisbevegelse.c@{heisbevegelse.c}}
+\doxysubsubsection{\texorpdfstring{stoppPåEtasje()}{stoppPåEtasje()}}
+{\footnotesize\ttfamily \label{heisbevegelse_8c_ab015b5c85b0c642eecb1781d7544517b} 
+void stopp\+På\+Etasje (\begin{DoxyParamCaption}\item[{int}]{floor}{}\end{DoxyParamCaption})}
+
+
+
+Kalles av ankom\+Etasje(floor) når heisen skal stoppe. ~\newline
+Kaller funksjonene ~\newline
+ \doxylink{heisbevegelse_8h_ac6cfe68f089ea6cd52775480c9ccfb1e}{set\+Retning()}; \#0 ~\newline
+ \doxylink{bestillinger_8c_a002453e89f713fefa0c86a08ba5a8b44}{clear\+Bestillinger()}; ~\newline
+ \doxylink{dor_8c_aecd6e7e615ca7cd6a51ffeaff5d9ed94}{åpne\+Dør()}; ~\newline
+ \doxylink{dor_8c_a3b73aa237ab55c7e95647c1b394ccbd8}{lukk\+Dør()}; ~\newline
+ \doxylink{heisbevegelse_8h_a9a6a8bc16560afe8d189ce2b1382ebde}{inaktiv()}; ~\newline
+som får heisen til å stoppe, fjerne bestillinger i etasjen, åpner/\+lukker dør og starter inaktiv modus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em floor} & Etasjen som skal stoppes i \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{heisbevegelse_8c_source_l00035}{35}} of file \doxymbox{\hyperlink{heisbevegelse_8c_source}{heisbevegelse.\+c}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{heisbevegelse_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{heisbevegelse_8c_a3dc1769e994f67e5b17086b1a8cc550b}\index{heisbevegelse.c@{heisbevegelse.c}!forrigeEtasje@{forrigeEtasje}}
+\index{forrigeEtasje@{forrigeEtasje}!heisbevegelse.c@{heisbevegelse.c}}
+\doxysubsubsection{\texorpdfstring{forrigeEtasje}{forrigeEtasje}}
+{\footnotesize\ttfamily \label{heisbevegelse_8c_a3dc1769e994f67e5b17086b1a8cc550b} 
+int forrige\+Etasje = -\/1}
+
+
+
+Definition at line \doxymbox{\hyperlink{heisbevegelse_8c_source_l00009}{9}} of file \doxymbox{\hyperlink{heisbevegelse_8c_source}{heisbevegelse.\+c}}.
+
+\Hypertarget{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}\index{heisbevegelse.c@{heisbevegelse.c}!retning@{retning}}
+\index{retning@{retning}!heisbevegelse.c@{heisbevegelse.c}}
+\doxysubsubsection{\texorpdfstring{retning}{retning}}
+{\footnotesize\ttfamily \label{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b} 
+int retning = -\/1}
+
+
+
+Definition at line \doxymbox{\hyperlink{heisbevegelse_8c_source_l00011}{11}} of file \doxymbox{\hyperlink{heisbevegelse_8c_source}{heisbevegelse.\+c}}.
+

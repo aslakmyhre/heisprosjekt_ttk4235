@@ -1,0 +1,171 @@
+\doxysection{driver/\+elevio.c File Reference}
+\hypertarget{elevio_8c}{}\label{elevio_8c}\index{driver/elevio.c@{driver/elevio.c}}
+{\ttfamily \+\#include $<$assert.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \+\#include $<$sys/\+types.\+h$>$}\newline
+{\ttfamily \+\#include $<$sys/\+socket.\+h$>$}\newline
+{\ttfamily \+\#include $<$netdb.\+h$>$}\newline
+{\ttfamily \+\#include $<$stdio.\+h$>$}\newline
+{\ttfamily \+\#include $<$pthread.\+h$>$}\newline
+{\ttfamily \+\#include "{}elevio.\+h"{}}\newline
+{\ttfamily \+\#include "{}con\+\_\+load.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{elevio_8c_acec5e6d14134b881216887fe15aca830}{elevio\+\_\+init}} (void)
+\item 
+void \doxymbox{\hyperlink{elevio_8c_ab2e6dcf199387c1dd6f78e2bf6fff56e}{elevio\+\_\+motor\+Direction}} (\doxymbox{\hyperlink{elevio_8h_ab0dd3595d7049b92115a766f0ea6f7e0}{Motor\+Direction}} dirn)
+\item 
+void \doxymbox{\hyperlink{elevio_8c_a182079eb4c29f71ff3b5049a2fd082a3}{elevio\+\_\+button\+Lamp}} (int floor, \doxymbox{\hyperlink{elevio_8h_ae2d5c50fae96a83cc4f5974af78e6943}{Button\+Type}} button, int value)
+\item 
+void \doxymbox{\hyperlink{elevio_8c_a184a3b9bd68d9f38ada735288059b823}{elevio\+\_\+floor\+Indicator}} (int floor)
+\item 
+void \doxymbox{\hyperlink{elevio_8c_a7784247f816e8beee3a0538f070d9357}{elevio\+\_\+door\+Open\+Lamp}} (int value)
+\item 
+void \doxymbox{\hyperlink{elevio_8c_ac0411a180087d6ac13a3d97eda809ba0}{elevio\+\_\+stop\+Lamp}} (int value)
+\item 
+int \doxymbox{\hyperlink{elevio_8c_a2485d7d293f03756a852ee1f796b9e1f}{elevio\+\_\+call\+Button}} (int floor, \doxymbox{\hyperlink{elevio_8h_ae2d5c50fae96a83cc4f5974af78e6943}{Button\+Type}} button)
+\item 
+int \doxymbox{\hyperlink{elevio_8c_a6c30a3c0241ebf37a9014679e1bf288d}{elevio\+\_\+floor\+Sensor}} (void)
+\item 
+int \doxymbox{\hyperlink{elevio_8c_a73cf5844bdae806dc8d0afa3e0edab70}{elevio\+\_\+stop\+Button}} (void)
+\item 
+int \doxymbox{\hyperlink{elevio_8c_a96c87bf2164a6aa64d116f6137b8ee78}{elevio\+\_\+obstruction}} (void)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static int \doxymbox{\hyperlink{elevio_8c_ad2c8fb3df3a737e0685e902870a611d2}{sockfd}}
+\item 
+static pthread\+\_\+mutex\+\_\+t \doxymbox{\hyperlink{elevio_8c_a8acd0e430c848e39d3400b153054ad6e}{sockmtx}}
+\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{elevio_8c_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{elevio_8c_a182079eb4c29f71ff3b5049a2fd082a3}\index{elevio.c@{elevio.c}!elevio\_buttonLamp@{elevio\_buttonLamp}}
+\index{elevio\_buttonLamp@{elevio\_buttonLamp}!elevio.c@{elevio.c}}
+\doxysubsubsection{\texorpdfstring{elevio\_buttonLamp()}{elevio\_buttonLamp()}}
+{\footnotesize\ttfamily \label{elevio_8c_a182079eb4c29f71ff3b5049a2fd082a3} 
+void elevio\+\_\+button\+Lamp (\begin{DoxyParamCaption}\item[{int}]{floor}{, }\item[{\doxymbox{\hyperlink{elevio_8h_ae2d5c50fae96a83cc4f5974af78e6943}{Button\+Type}}}]{button}{, }\item[{int}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{elevio_8c_source_l00054}{54}} of file \doxymbox{\hyperlink{elevio_8c_source}{elevio.\+c}}.
+
+\Hypertarget{elevio_8c_a2485d7d293f03756a852ee1f796b9e1f}\index{elevio.c@{elevio.c}!elevio\_callButton@{elevio\_callButton}}
+\index{elevio\_callButton@{elevio\_callButton}!elevio.c@{elevio.c}}
+\doxysubsubsection{\texorpdfstring{elevio\_callButton()}{elevio\_callButton()}}
+{\footnotesize\ttfamily \label{elevio_8c_a2485d7d293f03756a852ee1f796b9e1f} 
+int elevio\+\_\+call\+Button (\begin{DoxyParamCaption}\item[{int}]{floor}{, }\item[{\doxymbox{\hyperlink{elevio_8h_ae2d5c50fae96a83cc4f5974af78e6943}{Button\+Type}}}]{button}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{elevio_8c_source_l00092}{92}} of file \doxymbox{\hyperlink{elevio_8c_source}{elevio.\+c}}.
+
+\Hypertarget{elevio_8c_a7784247f816e8beee3a0538f070d9357}\index{elevio.c@{elevio.c}!elevio\_doorOpenLamp@{elevio\_doorOpenLamp}}
+\index{elevio\_doorOpenLamp@{elevio\_doorOpenLamp}!elevio.c@{elevio.c}}
+\doxysubsubsection{\texorpdfstring{elevio\_doorOpenLamp()}{elevio\_doorOpenLamp()}}
+{\footnotesize\ttfamily \label{elevio_8c_a7784247f816e8beee3a0538f070d9357} 
+void elevio\+\_\+door\+Open\+Lamp (\begin{DoxyParamCaption}\item[{int}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{elevio_8c_source_l00076}{76}} of file \doxymbox{\hyperlink{elevio_8c_source}{elevio.\+c}}.
+
+\Hypertarget{elevio_8c_a184a3b9bd68d9f38ada735288059b823}\index{elevio.c@{elevio.c}!elevio\_floorIndicator@{elevio\_floorIndicator}}
+\index{elevio\_floorIndicator@{elevio\_floorIndicator}!elevio.c@{elevio.c}}
+\doxysubsubsection{\texorpdfstring{elevio\_floorIndicator()}{elevio\_floorIndicator()}}
+{\footnotesize\ttfamily \label{elevio_8c_a184a3b9bd68d9f38ada735288059b823} 
+void elevio\+\_\+floor\+Indicator (\begin{DoxyParamCaption}\item[{int}]{floor}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{elevio_8c_source_l00066}{66}} of file \doxymbox{\hyperlink{elevio_8c_source}{elevio.\+c}}.
+
+\Hypertarget{elevio_8c_a6c30a3c0241ebf37a9014679e1bf288d}\index{elevio.c@{elevio.c}!elevio\_floorSensor@{elevio\_floorSensor}}
+\index{elevio\_floorSensor@{elevio\_floorSensor}!elevio.c@{elevio.c}}
+\doxysubsubsection{\texorpdfstring{elevio\_floorSensor()}{elevio\_floorSensor()}}
+{\footnotesize\ttfamily \label{elevio_8c_a6c30a3c0241ebf37a9014679e1bf288d} 
+int elevio\+\_\+floor\+Sensor (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{elevio_8c_source_l00102}{102}} of file \doxymbox{\hyperlink{elevio_8c_source}{elevio.\+c}}.
+
+\Hypertarget{elevio_8c_acec5e6d14134b881216887fe15aca830}\index{elevio.c@{elevio.c}!elevio\_init@{elevio\_init}}
+\index{elevio\_init@{elevio\_init}!elevio.c@{elevio.c}}
+\doxysubsubsection{\texorpdfstring{elevio\_init()}{elevio\_init()}}
+{\footnotesize\ttfamily \label{elevio_8c_acec5e6d14134b881216887fe15aca830} 
+void elevio\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{elevio_8c_source_l00015}{15}} of file \doxymbox{\hyperlink{elevio_8c_source}{elevio.\+c}}.
+
+\Hypertarget{elevio_8c_ab2e6dcf199387c1dd6f78e2bf6fff56e}\index{elevio.c@{elevio.c}!elevio\_motorDirection@{elevio\_motorDirection}}
+\index{elevio\_motorDirection@{elevio\_motorDirection}!elevio.c@{elevio.c}}
+\doxysubsubsection{\texorpdfstring{elevio\_motorDirection()}{elevio\_motorDirection()}}
+{\footnotesize\ttfamily \label{elevio_8c_ab2e6dcf199387c1dd6f78e2bf6fff56e} 
+void elevio\+\_\+motor\+Direction (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{elevio_8h_ab0dd3595d7049b92115a766f0ea6f7e0}{Motor\+Direction}}}]{dirn}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{elevio_8c_source_l00047}{47}} of file \doxymbox{\hyperlink{elevio_8c_source}{elevio.\+c}}.
+
+\Hypertarget{elevio_8c_a96c87bf2164a6aa64d116f6137b8ee78}\index{elevio.c@{elevio.c}!elevio\_obstruction@{elevio\_obstruction}}
+\index{elevio\_obstruction@{elevio\_obstruction}!elevio.c@{elevio.c}}
+\doxysubsubsection{\texorpdfstring{elevio\_obstruction()}{elevio\_obstruction()}}
+{\footnotesize\ttfamily \label{elevio_8c_a96c87bf2164a6aa64d116f6137b8ee78} 
+int elevio\+\_\+obstruction (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{elevio_8c_source_l00122}{122}} of file \doxymbox{\hyperlink{elevio_8c_source}{elevio.\+c}}.
+
+\Hypertarget{elevio_8c_a73cf5844bdae806dc8d0afa3e0edab70}\index{elevio.c@{elevio.c}!elevio\_stopButton@{elevio\_stopButton}}
+\index{elevio\_stopButton@{elevio\_stopButton}!elevio.c@{elevio.c}}
+\doxysubsubsection{\texorpdfstring{elevio\_stopButton()}{elevio\_stopButton()}}
+{\footnotesize\ttfamily \label{elevio_8c_a73cf5844bdae806dc8d0afa3e0edab70} 
+int elevio\+\_\+stop\+Button (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{elevio_8c_source_l00112}{112}} of file \doxymbox{\hyperlink{elevio_8c_source}{elevio.\+c}}.
+
+\Hypertarget{elevio_8c_ac0411a180087d6ac13a3d97eda809ba0}\index{elevio.c@{elevio.c}!elevio\_stopLamp@{elevio\_stopLamp}}
+\index{elevio\_stopLamp@{elevio\_stopLamp}!elevio.c@{elevio.c}}
+\doxysubsubsection{\texorpdfstring{elevio\_stopLamp()}{elevio\_stopLamp()}}
+{\footnotesize\ttfamily \label{elevio_8c_ac0411a180087d6ac13a3d97eda809ba0} 
+void elevio\+\_\+stop\+Lamp (\begin{DoxyParamCaption}\item[{int}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \doxymbox{\hyperlink{elevio_8c_source_l00083}{83}} of file \doxymbox{\hyperlink{elevio_8c_source}{elevio.\+c}}.
+
+
+
+\label{doc-var-members}
+\Hypertarget{elevio_8c_doc-var-members}
+\doxysubsection{Variable Documentation}
+\Hypertarget{elevio_8c_ad2c8fb3df3a737e0685e902870a611d2}\index{elevio.c@{elevio.c}!sockfd@{sockfd}}
+\index{sockfd@{sockfd}!elevio.c@{elevio.c}}
+\doxysubsubsection{\texorpdfstring{sockfd}{sockfd}}
+{\footnotesize\ttfamily \label{elevio_8c_ad2c8fb3df3a737e0685e902870a611d2} 
+int sockfd\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{elevio_8c_source_l00012}{12}} of file \doxymbox{\hyperlink{elevio_8c_source}{elevio.\+c}}.
+
+\Hypertarget{elevio_8c_a8acd0e430c848e39d3400b153054ad6e}\index{elevio.c@{elevio.c}!sockmtx@{sockmtx}}
+\index{sockmtx@{sockmtx}!elevio.c@{elevio.c}}
+\doxysubsubsection{\texorpdfstring{sockmtx}{sockmtx}}
+{\footnotesize\ttfamily \label{elevio_8c_a8acd0e430c848e39d3400b153054ad6e} 
+pthread\+\_\+mutex\+\_\+t sockmtx\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \doxymbox{\hyperlink{elevio_8c_source_l00013}{13}} of file \doxymbox{\hyperlink{elevio_8c_source}{elevio.\+c}}.
+

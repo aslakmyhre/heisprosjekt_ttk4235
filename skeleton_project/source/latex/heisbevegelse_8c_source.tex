@@ -1,0 +1,128 @@
+\doxysection{heisbevegelse.\+c}
+\hypertarget{heisbevegelse_8c_source}{}\label{heisbevegelse_8c_source}\doxymbox{\hyperlink{heisbevegelse_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{heisbevegelse_8h}{heisbevegelse.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{bestillinger_8h}{bestillinger.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{elevio_8h}{driver/elevio.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{dor_8h}{dor.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <time.h>}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00009}\doxymbox{\hyperlink{heisbevegelse_8c_a3dc1769e994f67e5b17086b1a8cc550b}{00009}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{heisbevegelse_8c_a3dc1769e994f67e5b17086b1a8cc550b}{forrigeEtasje}}\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00011}\doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{00011}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}}\ =\ -\/1;\ \textcolor{comment}{//\ retning\ er\ den\ forrige\ ikke-\/null\ retningen\ til\ heisen}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00013}\doxymbox{\hyperlink{heisbevegelse_8c_a844350fa7bac51f28954e2066f132f21}{00013}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{heisbevegelse_8c_a844350fa7bac51f28954e2066f132f21}{getRetning}}()\ \{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00014}00014\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}};}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00017}\doxymbox{\hyperlink{heisbevegelse_8c_ac6cfe68f089ea6cd52775480c9ccfb1e}{00017}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{heisbevegelse_8c_ac6cfe68f089ea6cd52775480c9ccfb1e}{setRetning}}(\textcolor{keywordtype}{int}\ nyRetning)\ \{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00018}00018\ \ \ \ \ printf(\textcolor{stringliteral}{"{}starter\ setRetning()\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{if}(nyRetning\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00020}00020\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}}\ =\ nyRetning;}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00021}00021\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00022}00022\ \ \ \ \ \doxymbox{\hyperlink{elevio_8c_ab2e6dcf199387c1dd6f78e2bf6fff56e}{elevio\_motorDirection}}(nyRetning);}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00023}00023\ \ \ \ \ printf(\textcolor{stringliteral}{"{}ferdig\ setRetning(),\ return:\%d\(\backslash\)n"{}},\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}});}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00024}00024\ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00026}\doxymbox{\hyperlink{heisbevegelse_8c_a888c4526b5fb7bf9305f2b7e0c76481e}{00026}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{heisbevegelse_8c_a888c4526b5fb7bf9305f2b7e0c76481e}{ankomEtasje}}(\textcolor{keywordtype}{int}\ floor)\ \{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00027}00027\ \ \ \ \ printf(\textcolor{stringliteral}{"{}starter\ ankometasje\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00028}00028\ \ \ \ \ \doxymbox{\hyperlink{elevio_8c_a184a3b9bd68d9f38ada735288059b823}{elevio\_floorIndicator}}(floor);}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{bestillinger_8c_a0db49d791097a776198e0ea853cbf7ba}{sjekkEtasje}}(floor,\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}}))\ \{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00030}00030\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{heisbevegelse_8c_ab015b5c85b0c642eecb1781d7544517b}{stoppPåEtasje}}(floor);}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00031}00031\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}stopper\ på\ \%d\(\backslash\)n"{}},\ floor);}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00032}00032\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00033}00033\ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00035}\doxymbox{\hyperlink{heisbevegelse_8c_ab015b5c85b0c642eecb1781d7544517b}{00035}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{heisbevegelse_8c_ab015b5c85b0c642eecb1781d7544517b}{stoppPåEtasje}}(\textcolor{keywordtype}{int}\ floor)\{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00036}00036\ \ \ \ \ printf(\textcolor{stringliteral}{"{}starter\ stoppPåEtasje()\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00037}00037\ \ \ \ \ \doxymbox{\hyperlink{heisbevegelse_8c_ac6cfe68f089ea6cd52775480c9ccfb1e}{setRetning}}(0);}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00038}00038\ \ \ \ \ \doxymbox{\hyperlink{bestillinger_8c_a002453e89f713fefa0c86a08ba5a8b44}{clearBestillinger}}(floor);}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00039}00039\ \ \ \ \ \doxymbox{\hyperlink{dor_8c_aecd6e7e615ca7cd6a51ffeaff5d9ed94}{åpneDør}}();}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00040}00040\ \ \ \ \ \doxymbox{\hyperlink{dor_8c_a3b73aa237ab55c7e95647c1b394ccbd8}{lukkDør}}();}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00041}00041\ \ \ \ \ \doxymbox{\hyperlink{heisbevegelse_8c_a9a6a8bc16560afe8d189ce2b1382ebde}{inaktiv}}();}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00042}00042\ \ \ \ \ printf(\textcolor{stringliteral}{"{}ferdig\ med\ inaktiv\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00043}00043\ \ \ \ \ \doxymbox{\hyperlink{heisbevegelse_8c_ac6cfe68f089ea6cd52775480c9ccfb1e}{setRetning}}(\doxymbox{\hyperlink{bestillinger_8c_ad43cb301526f245bfce92e60ff0136b2}{retningsVelger}}(floor,\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}}));}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00044}00044\ \ \ \ \ printf(\textcolor{stringliteral}{"{}valgte\ retning\%d\(\backslash\)n"{}},\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}});}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00045}00045\ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00047}\doxymbox{\hyperlink{heisbevegelse_8c_a9bcb63d4556b35109cbf73829ad6f887}{00047}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{heisbevegelse_8c_a9bcb63d4556b35109cbf73829ad6f887}{oppstart}}()\{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00048}00048\ \ \ \ \ printf(\textcolor{stringliteral}{"{}starter\ oppstart()\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00049}00049\ \ \ \ \ \textcolor{comment}{//\ skrur\ av\ alle\ knapplys}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ f\ =\ 0;\ f\ <\ 4;\ ++f)\ \{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ b\ =\ 0;\ b\ <=\ 2;\ ++b)\ \{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{elevio_8c_a182079eb4c29f71ff3b5049a2fd082a3}{elevio\_buttonLamp}}(f,\ b,\ 0);}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00055}00055\ \ \ \ \ \textcolor{comment}{//\ skrur\ av\ andre\ lys}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00056}00056\ \ \ \ \ \doxymbox{\hyperlink{elevio_8c_ac0411a180087d6ac13a3d97eda809ba0}{elevio\_stopLamp}}(0);}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00057}00057\ \ \ \ \ \textcolor{keywordtype}{int}\ floor\ =\ \doxymbox{\hyperlink{elevio_8c_a6c30a3c0241ebf37a9014679e1bf288d}{elevio\_floorSensor}}();}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (floor==-\/1)\{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{heisbevegelse_8c_ac6cfe68f089ea6cd52775480c9ccfb1e}{setRetning}}(-\/1);}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}fra\ oppstart:\ setRetning():\%d\(\backslash\)n"{}},\ floor);}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{while}\ (floor\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ floor\ =\ \doxymbox{\hyperlink{elevio_8c_a6c30a3c0241ebf37a9014679e1bf288d}{elevio\_floorSensor}}();}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00064}00064\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00065}00065\ \ \ \ \ \doxymbox{\hyperlink{heisbevegelse_8c_a888c4526b5fb7bf9305f2b7e0c76481e}{ankomEtasje}}(floor);}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00066}00066\ \ \ \ \ \doxymbox{\hyperlink{heisbevegelse_8c_a9a6a8bc16560afe8d189ce2b1382ebde}{inaktiv}}();}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00067}00067\ \ \ \ \ \doxymbox{\hyperlink{heisbevegelse_8c_ac6cfe68f089ea6cd52775480c9ccfb1e}{setRetning}}(\doxymbox{\hyperlink{bestillinger_8c_ad43cb301526f245bfce92e60ff0136b2}{retningsVelger}}(floor,\ \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}}));}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00068}00068\ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00070}\doxymbox{\hyperlink{heisbevegelse_8c_a9a6a8bc16560afe8d189ce2b1382ebde}{00070}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{heisbevegelse_8c_a9a6a8bc16560afe8d189ce2b1382ebde}{inaktiv}}()\ \{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00071}00071\ \ \ \ \ printf(\textcolor{stringliteral}{"{}går\ inaktiv\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00072}00072\ \ \ \ \ \doxymbox{\hyperlink{heisbevegelse_8c_ac6cfe68f089ea6cd52775480c9ccfb1e}{setRetning}}(0);}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00073}00073\ \ \ \ \ \textcolor{keywordflow}{while}(1)\ \{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\doxymbox{\hyperlink{bestillinger_8c_a6550cd6989418e13cf7516820a2185cb}{loopKnapper}}(\textcolor{keyword}{true})==1)\ \{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}ferdig\ inaktiv\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ stoppknapp\ breaker\ programmet}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\doxymbox{\hyperlink{elevio_8c_a73cf5844bdae806dc8d0afa3e0edab70}{elevio\_stopButton}}())\{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{elevio_8c_ab2e6dcf199387c1dd6f78e2bf6fff56e}{elevio\_motorDirection}}(\doxymbox{\hyperlink{elevio_8h_ab0dd3595d7049b92115a766f0ea6f7e0a72dbefe6c155fb5ea5c8d242a8079646}{DIRN\_STOP}});}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ nanosleep(\&(\textcolor{keyword}{struct}\ timespec)\{0,\ 20*1000*1000\},\ NULL);}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00084}00084\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00085}00085\ \ \ \ \ \textcolor{comment}{//return;}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00086}00086\ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00088}\doxymbox{\hyperlink{heisbevegelse_8c_ad008429b16798f31470c9cfd48ed8491}{00088}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{heisbevegelse_8c_ad008429b16798f31470c9cfd48ed8491}{stoppKnappFunksjon}}()\ \{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00089}00089\ \ \ \ \ \doxymbox{\hyperlink{heisbevegelse_8c_ac6cfe68f089ea6cd52775480c9ccfb1e}{setRetning}}(0);}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00090}00090\ \ \ \ \ \textcolor{keywordflow}{if}(\doxymbox{\hyperlink{elevio_8c_a6c30a3c0241ebf37a9014679e1bf288d}{elevio\_floorSensor}}()\ !=\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00091}00091\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{dor_8c_aecd6e7e615ca7cd6a51ffeaff5d9ed94}{åpneDør}}();}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00092}00092\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00093}00093\ \ \ \ \ printf(\textcolor{stringliteral}{"{}stoppknapp\ kallet\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00094}00094\ \ \ \ \ \textcolor{keywordtype}{int}\ stoppTrukket\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00095}00095\ \ \ \ \ \doxymbox{\hyperlink{elevio_8c_ac0411a180087d6ac13a3d97eda809ba0}{elevio\_stopLamp}}(1);}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00096}00096\ \ \ \ \ \textcolor{comment}{//\ slett\ alle\ ubetjente\ bestillinger}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00097}00097\ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ f\ =\ 0;\ f\ <\ 4;\ ++f)\ \{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{bestillinger_8c_a002453e89f713fefa0c86a08ba5a8b44}{clearBestillinger}}(f);}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00099}00099\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{while}\ (stoppTrukket\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00101}00101\ \ \ \ \ \ \ \ \ stoppTrukket\ =\ \doxymbox{\hyperlink{elevio_8c_a73cf5844bdae806dc8d0afa3e0edab70}{elevio\_stopButton}}();}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00102}00102\ \ \ \ \ \}\ \textcolor{comment}{//\ går\ ut\ av\ løkka\ når\ stoppknappen\ slippes}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00104}00104\ \ \ \ \ \doxymbox{\hyperlink{elevio_8c_ac0411a180087d6ac13a3d97eda809ba0}{elevio\_stopLamp}}(0);}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00105}00105\ \ \ \ \ \doxymbox{\hyperlink{dor_8c_a3b73aa237ab55c7e95647c1b394ccbd8}{lukkDør}}();}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00106}00106\ \ \ \ \ \textcolor{comment}{//\ oppførsel\ når\ stoppknapp\ er\ sluppet}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00107}00107\ \ \ \ \ \doxymbox{\hyperlink{heisbevegelse_8c_a9a6a8bc16560afe8d189ce2b1382ebde}{inaktiv}}();}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{if}(\doxymbox{\hyperlink{bestillinger_8c_aa5df81de8792fcfb717fbcd9beb632b6}{finnesBestilling}}(\doxymbox{\hyperlink{heisbevegelse_8c_a3dc1769e994f67e5b17086b1a8cc550b}{forrigeEtasje}}))\ \{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{heisbevegelse_8c_ac6cfe68f089ea6cd52775480c9ccfb1e}{setRetning}}(\doxymbox{\hyperlink{heisbevegelse_8c_a844350fa7bac51f28954e2066f132f21}{getRetning}}()\ *\ -\/1);}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00110}00110\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{heisbevegelse_8c_a3dc1769e994f67e5b17086b1a8cc550b}{forrigeEtasje}}\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00111}00111\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{heisbevegelse_8c_ac6cfe68f089ea6cd52775480c9ccfb1e}{setRetning}}(\doxymbox{\hyperlink{bestillinger_8c_ad43cb301526f245bfce92e60ff0136b2}{retningsVelger}}(\doxymbox{\hyperlink{heisbevegelse_8c_a3dc1769e994f67e5b17086b1a8cc550b}{forrigeEtasje}},\ \doxymbox{\hyperlink{heisbevegelse_8c_a844350fa7bac51f28954e2066f132f21}{getRetning}}()));}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00114}00114\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00115}00115\ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00117}\doxymbox{\hyperlink{heisbevegelse_8c_a51c836d8645e79ddf8436af90a114f0a}{00117}}\ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{heisbevegelse_8c_a51c836d8645e79ddf8436af90a114f0a}{setForrigeEtasje}}(\textcolor{keywordtype}{int}\ nyForrigeEtasje)\ \{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00118}00118\ \ \ \ \ \doxymbox{\hyperlink{heisbevegelse_8c_a3dc1769e994f67e5b17086b1a8cc550b}{forrigeEtasje}}\ =\ nyForrigeEtasje;}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00119}00119\ \}}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00121}\doxymbox{\hyperlink{heisbevegelse_8c_a89836e253b4fc108ae8a2c33db370e5b}{00121}}\ \textcolor{keywordtype}{int}\ \doxymbox{\hyperlink{heisbevegelse_8c_a89836e253b4fc108ae8a2c33db370e5b}{getForrigeEtasje}}()\ \{}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00122}00122\ \ \ \ \ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{heisbevegelse_8c_a3dc1769e994f67e5b17086b1a8cc550b}{forrigeEtasje}};}
+\DoxyCodeLine{\Hypertarget{heisbevegelse_8c_source_l00123}00123\ \}}
+
+\end{DoxyCode}

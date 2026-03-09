@@ -1,0 +1,195 @@
+\doxysection{bestillinger.\+h File Reference}
+\hypertarget{bestillinger_8h}{}\label{bestillinger_8h}\index{bestillinger.h@{bestillinger.h}}
+
+
+Bestillinger definerer og deklarerer alle funksjoner som omhandler bestillinger, bestillingslogikk og knappetrykk.  
+
+
+{\ttfamily \+\#include $<$stdbool.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{bestillinger_8h_a8b5278890a53149b82626f28967cff39}{opprett\+Bestilling}} (int floor, int button)
+\begin{DoxyCompactList}\small\item\em Tar inn type knapp som ble trykket og hvilken etasje brukerer vil dra til ~\newline
+ Typen (button) knapp bestemmer hvilken array (opp\+Bestillinger, ned\+Bestillinger, innvendige\+Bestillinger) bestillinger skal lagres og etasjer (floor) bestemmer hvilken posisjon den skal ha ~\newline
+ For eksempel vil en opp-\/knapp i 2. etasje lagres i opp\+Bestillinger\+[1]\+. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{bestillinger_8h_a6550cd6989418e13cf7516820a2185cb}{loop\+Knapper}} (bool kan\+Vekkes)
+\begin{DoxyCompactList}\small\item\em Looper gjennom alle etasjer og knapptyper og sjekker om \doxylink{elevio_8c_a2485d7d293f03756a852ee1f796b9e1f}{elevio\+\_\+call\+Button()} for etasje og knapptype er true ~\newline
+Kaller opprett\+Bestillig() for knappen som er trykket. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{bestillinger_8h_aa5df81de8792fcfb717fbcd9beb632b6}{finnes\+Bestilling}} (int floor)
+\begin{DoxyCompactList}\small\item\em Sjekker om det finnes en bestilling for etasjen som blir sjekket, altså om en av knappelistene har true for elementet floor. \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{bestillinger_8h_a0db49d791097a776198e0ea853cbf7ba}{sjekk\+Etasje}} (int floor, int \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}})
+\begin{DoxyCompactList}\small\item\em Sjekker om heisen skal stoppe i etasjen. Blir kalt av \doxylink{heisbevegelse_8c_a888c4526b5fb7bf9305f2b7e0c76481e}{ankom\+Etasje()} ~\newline
+ Fungerer slik:\+ Finnes det en panelbestilling eller en bestilling i samme retning? ~\newline
+ Hvis ja:\+ stopp. ~\newline
+ Hvis nei:\+ Finnes det en bestilling i etasjen i motsatt retning, men ingen andre bestillinger i samme retning? ~\newline
+ Hvis ja:\+ stopp. Hvis nei:\+ ikke stopp. \end{DoxyCompactList}\item 
+void \doxymbox{\hyperlink{bestillinger_8h_a002453e89f713fefa0c86a08ba5a8b44}{clear\+Bestillinger}} (int floor)
+\begin{DoxyCompactList}\small\item\em Fjerner alle bestillinger i etasjen (Setter alle elementet tilhørende denne etasjen i alle knappelistene til false) ~\newline
+ Kalles når heisen stopper i en etasje, og brukes i \doxylink{heisbevegelse_8c_a9bcb63d4556b35109cbf73829ad6f887}{oppstart()} til å skru av alle lamper. \end{DoxyCompactList}\item 
+int \doxymbox{\hyperlink{bestillinger_8h_ad43cb301526f245bfce92e60ff0136b2}{retnings\+Velger}} (int floor, int \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}})
+\begin{DoxyCompactList}\small\item\em Bestemmer hvilken retning heisen skal kjøre. Kalles når heisen har stoppet. ~\newline
+Sjekker om det finnes en bestilling i retningen heisen hadde før stoppet. Hvis ja:\+ fortsett i samme retning ~\newline
+ Hvis nei:\+ Sjekker om det finnes en bestilling i mostatt retning. Hvis ja:\+ bytt retning ~\newline
+ Hvis nei:\+ stå stille. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Bestillinger definerer og deklarerer alle funksjoner som omhandler bestillinger, bestillingslogikk og knappetrykk. 
+
+
+
+Definition in file \doxymbox{\hyperlink{bestillinger_8h_source}{bestillinger.\+h}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{bestillinger_8h_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{bestillinger_8h_a002453e89f713fefa0c86a08ba5a8b44}\index{bestillinger.h@{bestillinger.h}!clearBestillinger@{clearBestillinger}}
+\index{clearBestillinger@{clearBestillinger}!bestillinger.h@{bestillinger.h}}
+\doxysubsubsection{\texorpdfstring{clearBestillinger()}{clearBestillinger()}}
+{\footnotesize\ttfamily \label{bestillinger_8h_a002453e89f713fefa0c86a08ba5a8b44} 
+void clear\+Bestillinger (\begin{DoxyParamCaption}\item[{int}]{floor}{}\end{DoxyParamCaption})}
+
+
+
+Fjerner alle bestillinger i etasjen (Setter alle elementet tilhørende denne etasjen i alle knappelistene til false) ~\newline
+ Kalles når heisen stopper i en etasje, og brukes i \doxylink{heisbevegelse_8c_a9bcb63d4556b35109cbf73829ad6f887}{oppstart()} til å skru av alle lamper. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em floor} & Etasjen man fjerner bestillinger fra \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{bestillinger_8c_source_l00089}{89}} of file \doxymbox{\hyperlink{bestillinger_8c_source}{bestillinger.\+c}}.
+
+\Hypertarget{bestillinger_8h_aa5df81de8792fcfb717fbcd9beb632b6}\index{bestillinger.h@{bestillinger.h}!finnesBestilling@{finnesBestilling}}
+\index{finnesBestilling@{finnesBestilling}!bestillinger.h@{bestillinger.h}}
+\doxysubsubsection{\texorpdfstring{finnesBestilling()}{finnesBestilling()}}
+{\footnotesize\ttfamily \label{bestillinger_8h_aa5df81de8792fcfb717fbcd9beb632b6} 
+bool finnes\+Bestilling (\begin{DoxyParamCaption}\item[{int}]{floor}{}\end{DoxyParamCaption})}
+
+
+
+Sjekker om det finnes en bestilling for etasjen som blir sjekket, altså om en av knappelistene har true for elementet floor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em floor} & Etasjen som blir sjekket \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true:\+ En av listene har en bestilling i denne etasjen 
+
+false:\+ Ingen av listene har en bestilling i denne etasjen 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{bestillinger_8c_source_l00052}{52}} of file \doxymbox{\hyperlink{bestillinger_8c_source}{bestillinger.\+c}}.
+
+\Hypertarget{bestillinger_8h_a6550cd6989418e13cf7516820a2185cb}\index{bestillinger.h@{bestillinger.h}!loopKnapper@{loopKnapper}}
+\index{loopKnapper@{loopKnapper}!bestillinger.h@{bestillinger.h}}
+\doxysubsubsection{\texorpdfstring{loopKnapper()}{loopKnapper()}}
+{\footnotesize\ttfamily \label{bestillinger_8h_a6550cd6989418e13cf7516820a2185cb} 
+int loop\+Knapper (\begin{DoxyParamCaption}\item[{bool}]{kan\+Vekkes}{}\end{DoxyParamCaption})}
+
+
+
+Looper gjennom alle etasjer og knapptyper og sjekker om \doxylink{elevio_8c_a2485d7d293f03756a852ee1f796b9e1f}{elevio\+\_\+call\+Button()} for etasje og knapptype er true ~\newline
+Kaller opprett\+Bestillig() for knappen som er trykket. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kan\+Vekkes} & Dersom kan\+Vekkes = true, vil løkken brytes når den oppdager at en knapp er trykket \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returnerer 1 kun dersom kan\+Vekkes = true. Har ingen returverdi dersom kan\+Vekkes = false 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{bestillinger_8c_source_l00032}{32}} of file \doxymbox{\hyperlink{bestillinger_8c_source}{bestillinger.\+c}}.
+
+\Hypertarget{bestillinger_8h_a8b5278890a53149b82626f28967cff39}\index{bestillinger.h@{bestillinger.h}!opprettBestilling@{opprettBestilling}}
+\index{opprettBestilling@{opprettBestilling}!bestillinger.h@{bestillinger.h}}
+\doxysubsubsection{\texorpdfstring{opprettBestilling()}{opprettBestilling()}}
+{\footnotesize\ttfamily \label{bestillinger_8h_a8b5278890a53149b82626f28967cff39} 
+void opprett\+Bestilling (\begin{DoxyParamCaption}\item[{int}]{floor}{, }\item[{int}]{button}{}\end{DoxyParamCaption})}
+
+
+
+Tar inn type knapp som ble trykket og hvilken etasje brukerer vil dra til ~\newline
+ Typen (button) knapp bestemmer hvilken array (opp\+Bestillinger, ned\+Bestillinger, innvendige\+Bestillinger) bestillinger skal lagres og etasjer (floor) bestemmer hvilken posisjon den skal ha ~\newline
+ For eksempel vil en opp-\/knapp i 2. etasje lagres i opp\+Bestillinger\+[1]\+. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em floor} & Etasjen knappen hører til. 0 indeksert \\
+\hline
+{\em button} & Type knapp \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \doxymbox{\hyperlink{bestillinger_8c_source_l00011}{11}} of file \doxymbox{\hyperlink{bestillinger_8c_source}{bestillinger.\+c}}.
+
+\Hypertarget{bestillinger_8h_ad43cb301526f245bfce92e60ff0136b2}\index{bestillinger.h@{bestillinger.h}!retningsVelger@{retningsVelger}}
+\index{retningsVelger@{retningsVelger}!bestillinger.h@{bestillinger.h}}
+\doxysubsubsection{\texorpdfstring{retningsVelger()}{retningsVelger()}}
+{\footnotesize\ttfamily \label{bestillinger_8h_ad43cb301526f245bfce92e60ff0136b2} 
+int retnings\+Velger (\begin{DoxyParamCaption}\item[{int}]{floor}{, }\item[{int}]{retning}{}\end{DoxyParamCaption})}
+
+
+
+Bestemmer hvilken retning heisen skal kjøre. Kalles når heisen har stoppet. ~\newline
+Sjekker om det finnes en bestilling i retningen heisen hadde før stoppet. Hvis ja:\+ fortsett i samme retning ~\newline
+ Hvis nei:\+ Sjekker om det finnes en bestilling i mostatt retning. Hvis ja:\+ bytt retning ~\newline
+ Hvis nei:\+ stå stille. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em floor} & Etasjen heisen står i \\
+\hline
+{\em \doxylink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}} & Retningen heisen hadde før stans \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1:\+ oppover, -\/1:\+ nedover, 0:\+ stille 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{bestillinger_8c_source_l00099}{99}} of file \doxymbox{\hyperlink{bestillinger_8c_source}{bestillinger.\+c}}.
+
+\Hypertarget{bestillinger_8h_a0db49d791097a776198e0ea853cbf7ba}\index{bestillinger.h@{bestillinger.h}!sjekkEtasje@{sjekkEtasje}}
+\index{sjekkEtasje@{sjekkEtasje}!bestillinger.h@{bestillinger.h}}
+\doxysubsubsection{\texorpdfstring{sjekkEtasje()}{sjekkEtasje()}}
+{\footnotesize\ttfamily \label{bestillinger_8h_a0db49d791097a776198e0ea853cbf7ba} 
+bool sjekk\+Etasje (\begin{DoxyParamCaption}\item[{int}]{floor}{, }\item[{int}]{retning}{}\end{DoxyParamCaption})}
+
+
+
+Sjekker om heisen skal stoppe i etasjen. Blir kalt av \doxylink{heisbevegelse_8c_a888c4526b5fb7bf9305f2b7e0c76481e}{ankom\+Etasje()} ~\newline
+ Fungerer slik:\+ Finnes det en panelbestilling eller en bestilling i samme retning? ~\newline
+ Hvis ja:\+ stopp. ~\newline
+ Hvis nei:\+ Finnes det en bestilling i etasjen i motsatt retning, men ingen andre bestillinger i samme retning? ~\newline
+ Hvis ja:\+ stopp. Hvis nei:\+ ikke stopp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em floor} & Etasjen som sjekkes \\
+\hline
+{\em \doxylink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}} & Retningen heisen kjører i når den ankommer etasjen \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true:\+ Heisen skal stoppe 
+
+false:\+ Heisen skal ikke stoppe 
+\end{DoxyReturn}
+
+
+Definition at line \doxymbox{\hyperlink{bestillinger_8c_source_l00061}{61}} of file \doxymbox{\hyperlink{bestillinger_8c_source}{bestillinger.\+c}}.
+

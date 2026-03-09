@@ -51,11 +51,9 @@ int loopKnapper(bool kanVekkes) {
 
 bool finnesBestilling(int floor){
     if (oppBestillinger[floor] || nedBestillinger[floor] || innvendigeBestillinger[floor]) {
-        //printf("finnesbestillinger=true\n");
         return true;
     }
     else {
-        //printf("finnesbestillinger=false\n");
         return false;
     }
 }
@@ -80,7 +78,6 @@ bool sjekkEtasje(int floor, int retning){
     }
     else {
         for (int f = floor + retning; f >= 0 && f < 4; f += retning) {
-            //printf("+retning, %d\n", f);
             if (finnesBestilling(f)) {
                 return false;
             }
@@ -99,13 +96,11 @@ void clearBestillinger(int floor){
     }
 }
 
-//25-02: lagt inn return 0 dersom ingen bestillinger finnes (redundant, men greit å ha)
 int retningsVelger(int floor, int retning){
     printf("retningsVelger\n");
     printf("retning, %d\n", retning);
     int ret = 0; 
     for (int f = floor + retning; f >= 0 && f < 4; f += retning) {
-        //printf("+retning, %d\n", f);
         if (finnesBestilling(f)) {
             ret= retning;
         }

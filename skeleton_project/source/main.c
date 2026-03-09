@@ -1,3 +1,8 @@
+/**
+ * @file 
+ * @brief main fil brukes til å starte og holde programmet kjørende
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
@@ -6,10 +11,6 @@
 #include "heisbevegelse.h"
 #include "bestillinger.h"
 #include "dor.h"
-
-
-
-
 
 int main(){
     elevio_init();
