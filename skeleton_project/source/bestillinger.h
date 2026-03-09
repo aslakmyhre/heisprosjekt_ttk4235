@@ -8,7 +8,7 @@
 
 /**
  * @brief Tar inn type knapp som ble trykket og hvilken etasje brukerer vil dra til \n 
- * Typen (button) knapp bestemmer hvilken array (oppBestillinger, nedBestillinger, innvendigeBestillinger) bestillinger skal lagres \n 
+ * Typen (button) knapp bestemmer hvilken array (oppBestillinger, nedBestillinger, innvendigeBestillinger) bestillinger skal lagres 
  * og etasjer (floor) bestemmer hvilken posisjon den skal ha \n 
  * For eksempel vil en opp-knapp i 2. etasje lagres i oppBestillinger[1]
  * @param floor Etasjen knappen hører til. 0 indeksert
@@ -26,7 +26,7 @@ void opprettBestilling(int floor, int button);
 int loopKnapper(bool kanVekkes);
 
 /**
- * @brief Sjekker om det finnes en bestilling for etasjen som blir sjekket, altså om en av knappelistene har \n 
+ * @brief Sjekker om det finnes en bestilling for etasjen som blir sjekket, altså om en av knappelistene har 
  * true for elementet floor
  * 
  * @param floor Etasjen som blir sjekket

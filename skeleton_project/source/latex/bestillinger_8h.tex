@@ -11,15 +11,13 @@ Bestillinger definerer og deklarerer alle funksjoner som omhandler bestillinger,
 \item 
 void \doxymbox{\hyperlink{bestillinger_8h_a8b5278890a53149b82626f28967cff39}{opprett\+Bestilling}} (int floor, int button)
 \begin{DoxyCompactList}\small\item\em Tar inn type knapp som ble trykket og hvilken etasje brukerer vil dra til ~\newline
- Typen (button) knapp bestemmer hvilken array (opp\+Bestillinger, ned\+Bestillinger, innvendige\+Bestillinger) bestillinger skal lagres ~\newline
- og etasjer (floor) bestemmer hvilken posisjon den skal ha ~\newline
+ Typen (button) knapp bestemmer hvilken array (opp\+Bestillinger, ned\+Bestillinger, innvendige\+Bestillinger) bestillinger skal lagres og etasjer (floor) bestemmer hvilken posisjon den skal ha ~\newline
  For eksempel vil en opp-\/knapp i 2. etasje lagres i opp\+Bestillinger\+[1]\+. \end{DoxyCompactList}\item 
 int \doxymbox{\hyperlink{bestillinger_8h_a6550cd6989418e13cf7516820a2185cb}{loop\+Knapper}} (bool kan\+Vekkes)
 \begin{DoxyCompactList}\small\item\em Looper gjennom alle etasjer og knapptyper og sjekker om \doxylink{elevio_8c_a2485d7d293f03756a852ee1f796b9e1f}{elevio\+\_\+call\+Button()} for etasje og knapptype er true ~\newline
 Kaller opprett\+Bestillig() for knappen som er trykket. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{bestillinger_8h_aa5df81de8792fcfb717fbcd9beb632b6}{finnes\+Bestilling}} (int floor)
-\begin{DoxyCompactList}\small\item\em Sjekker om det finnes en bestilling for etasjen som blir sjekket, altså om en av knappelistene har ~\newline
- true for elementet floor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sjekker om det finnes en bestilling for etasjen som blir sjekket, altså om en av knappelistene har true for elementet floor. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{bestillinger_8h_a0db49d791097a776198e0ea853cbf7ba}{sjekk\+Etasje}} (int floor, int \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}})
 \begin{DoxyCompactList}\small\item\em Sjekker om heisen skal stoppe i etasjen. Blir kalt av \doxylink{heisbevegelse_8c_a888c4526b5fb7bf9305f2b7e0c76481e}{ankom\+Etasje()} ~\newline
  Fungerer slik:\+ Finnes det en panelbestilling eller en bestilling i samme retning? ~\newline
@@ -76,8 +74,7 @@ bool finnes\+Bestilling (\begin{DoxyParamCaption}\item[{int}]{floor}{}\end{DoxyP
 
 
 
-Sjekker om det finnes en bestilling for etasjen som blir sjekket, altså om en av knappelistene har ~\newline
- true for elementet floor. 
+Sjekker om det finnes en bestilling for etasjen som blir sjekket, altså om en av knappelistene har true for elementet floor. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -125,8 +122,7 @@ void opprett\+Bestilling (\begin{DoxyParamCaption}\item[{int}]{floor}{, }\item[{
 
 
 Tar inn type knapp som ble trykket og hvilken etasje brukerer vil dra til ~\newline
- Typen (button) knapp bestemmer hvilken array (opp\+Bestillinger, ned\+Bestillinger, innvendige\+Bestillinger) bestillinger skal lagres ~\newline
- og etasjer (floor) bestemmer hvilken posisjon den skal ha ~\newline
+ Typen (button) knapp bestemmer hvilken array (opp\+Bestillinger, ned\+Bestillinger, innvendige\+Bestillinger) bestillinger skal lagres og etasjer (floor) bestemmer hvilken posisjon den skal ha ~\newline
  For eksempel vil en opp-\/knapp i 2. etasje lagres i opp\+Bestillinger\+[1]\+. 
 
 

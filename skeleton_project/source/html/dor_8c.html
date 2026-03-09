@@ -103,7 +103,10 @@ $(function(){initNavTree('dor_8c.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aecd6e7e615ca7cd6a51ffeaff5d9ed94" id="r_aecd6e7e615ca7cd6a51ffeaff5d9ed94"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aecd6e7e615ca7cd6a51ffeaff5d9ed94">åpneDør</a> ()</td></tr>
+<tr class="memdesc:aecd6e7e615ca7cd6a51ffeaff5d9ed94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skrur på dør-lys dersom heisen er i en etasje. Kalles av stoppPåEtasje.  <br /></td></tr>
 <tr class="memitem:a3b73aa237ab55c7e95647c1b394ccbd8" id="r_a3b73aa237ab55c7e95647c1b394ccbd8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3b73aa237ab55c7e95647c1b394ccbd8">lukkDør</a> ()</td></tr>
+<tr class="memdesc:a3b73aa237ab55c7e95647c1b394ccbd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Skrur av dør lys etter 3 sekunder. Sjekker underveis om det er en obstruksjon som gjør at døren ikke kan lukkes. Hvis det er en obstruksjon, venter den 3 nye sekunder etter den er borte på å skru av lyset, og fortsetter å se etter obstruksjoner. <br  />
+Kaller <a class="el" href="bestillinger_8c.html#a6550cd6989418e13cf7516820a2185cb" title="Looper gjennom alle etasjer og knapptyper og sjekker om elevio_callButton() for etasje og knapptype e...">loopKnapper()</a> #false for å sjekke om noen av knappene blir trykket i mellomtiden. Den skal ikke brytes.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="aecd6e7e615ca7cd6a51ffeaff5d9ed94" name="aecd6e7e615ca7cd6a51ffeaff5d9ed94"></a>
@@ -120,6 +123,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Skrur på dør-lys dersom heisen er i en etasje. Kalles av stoppPåEtasje. </p>
 
 <p class="definition">Definition at line <a class="el" href="dor_8c_source.html#l00009">9</a> of file <a class="el" href="dor_8c_source.html">dor.c</a>.</p>
 
@@ -139,6 +144,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Skrur av dør lys etter 3 sekunder. Sjekker underveis om det er en obstruksjon som gjør at døren ikke kan lukkes. Hvis det er en obstruksjon, venter den 3 nye sekunder etter den er borte på å skru av lyset, og fortsetter å se etter obstruksjoner. <br  />
+Kaller <a class="el" href="bestillinger_8c.html#a6550cd6989418e13cf7516820a2185cb" title="Looper gjennom alle etasjer og knapptyper og sjekker om elevio_callButton() for etasje og knapptype e...">loopKnapper()</a> #false for å sjekke om noen av knappene blir trykket i mellomtiden. Den skal ikke brytes. </p>
 
 <p class="definition">Definition at line <a class="el" href="dor_8c_source.html#l00016">16</a> of file <a class="el" href="dor_8c_source.html">dor.c</a>.</p>
 
