@@ -46,6 +46,14 @@ void stoppPåEtasje(int floor){
 
 void oppstart(){
     printf("starter oppstart()\n");
+    // skrur av alle knapplys
+    for(int f = 0; f < 4; ++f) {
+        for (int b = 0; b <= 2; ++b) {
+            elevio_buttonLamp(f, b, 0);
+        }
+    }
+    // skrur av andre lys
+    elevio_stopLamp(0);
     int floor = elevio_floorSensor();
     if (floor==-1){
         setRetning(-1);
