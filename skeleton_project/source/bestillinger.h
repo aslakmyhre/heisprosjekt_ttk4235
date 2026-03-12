@@ -7,40 +7,31 @@
 #include <stdbool.h>
 
 /**
- * @brief Tar inn type knapp som ble trykket og hvilken etasje brukerer vil dra til \n 
- * Typen (button) knapp bestemmer hvilken array (oppBestillinger, nedBestillinger, innvendigeBestillinger) bestillinger skal lagres 
- * og etasjer (floor) bestemmer hvilken posisjon den skal ha \n 
- * For eksempel vil en opp-knapp i 2. etasje lagres i oppBestillinger[1]
+ * @brief Oppretter en bestilling for knapp som har blitt trykket
  * @param floor Etasjen knappen hører til. 0 indeksert
  * @param button Type knapp
  */
 void opprettBestilling(int floor, int button);
 
 /**
- * @brief Looper gjennom alle etasjer og knapptyper og sjekker om elevio_callButton() for etasje og knapptype er true \n
- * Kaller opprettBestillig() for knappen som er trykket.
- * 
+ * @brief Løkke for å sjekke om en/flere knapp(er) har blitt trykket på \n
+ * Brukes når heisen utfører en funksjon som tar noe tid eller når heisen er inaktiv, slik at alle knappetrykk blir registrert.
  * @param kanVekkes Dersom kanVekkes = true, vil løkken brytes når den oppdager at en knapp er trykket
  * @return Returnerer 1 kun dersom kanVekkes = true. Har ingen returverdi dersom kanVekkes = false
  */
 int loopKnapper(bool kanVekkes);
 
 /**
- * @brief Sjekker om det finnes en bestilling for etasjen som blir sjekket, altså om en av knappelistene har 
- * true for elementet floor
+ * @brief Sjekker om det finnes en bestilling for etasjen som blir sjekket. 
  * 
  * @param floor Etasjen som blir sjekket
- * @return true: En av listene har en bestilling i denne etasjen
- * @return false: Ingen av listene har en bestilling i denne etasjen
+ * @return true: Finnes bestilling i etasjen
+ * @return false: Finnes ingen bestilling i etasjen
  */
 bool finnesBestilling(int floor);
 
 /**
- * @brief Sjekker om heisen skal stoppe i etasjen. Blir kalt av ankomEtasje() \n 
- * Fungerer slik: Finnes det en panelbestilling eller en bestilling i samme retning? \n 
- * Hvis ja: stopp. \n 
- * Hvis nei: Finnes det en bestilling i etasjen i motsatt retning, men ingen andre bestillinger i samme retning? \n 
- * Hvis ja: stopp. Hvis nei: ikke stopp.
+ * @brief Sjekker om heisen skal stoppe i etasjen \n Blir kalt av ankomEtasje()
  * 
  * @param floor Etasjen som sjekkes
  * @param retning Retningen heisen kjører i når den ankommer etasjen
@@ -50,7 +41,7 @@ bool finnesBestilling(int floor);
 bool sjekkEtasje(int floor, int retning);
 
 /**
- * @brief Fjerner alle bestillinger i etasjen (Setter alle elementet tilhørende denne etasjen i alle knappelistene til false) \n 
+ * @brief Fjerner alle bestillinger i etasjen \n 
  * Kalles når heisen stopper i en etasje, og brukes i oppstart() til å skru av alle lamper
  * 
  * @param floor Etasjen man fjerner bestillinger fra
@@ -58,13 +49,13 @@ bool sjekkEtasje(int floor, int retning);
 void clearBestillinger(int floor);
 
 /**
- * @brief Bestemmer hvilken retning heisen skal kjøre. Kalles når heisen har stoppet. \n
- * Sjekker om det finnes en bestilling i retningen heisen hadde før stoppet. Hvis ja: fortsett i samme retning \n 
- * Hvis nei: Sjekker om det finnes en bestilling i mostatt retning. Hvis ja: bytt retning \n 
- * Hvis nei: stå stille
+ * @brief Bestemmer hvilken retning heisen skal kjøre \n 
+ * Kalles når heisen skal starte igjen etter stans
  * 
  * @param floor Etasjen heisen står i
  * @param retning Retningen heisen hadde før stans
- * @return 1: oppover, -1: nedover, 0: stille
+ * @return 1: Velg retning oppover
+ * @return -1: Velg retning nedover
+ * @return 0: Ingen retning valgt, stå stille
  */
 int retningsVelger(int floor, int retning);

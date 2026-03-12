@@ -6,64 +6,53 @@
 #pragma once
 
 /**
- * @brief Kalles når man må vite hvilken retning man kjører i
+ * @brief returnerer hvilken retning heisen har eller hadde før evt. stans
  * 
- * @return int retning
+ * @return 1: retning = opp
+ * @return -1: retning = ned
  */
 int getRetning();
 
 /**
- * @brief Bestemmer hvilken retning heisen skal bevege seg i
- * 
+ * @brief Bestemmer hvilken retning heisen skal bevege seg i \n
+ * Lagrer retningen til bruk i getRetning() dersom nyRetning != 0
  * @param nyRetning Retningen som skal brukes
  */
 void setRetning(int nyRetning);
 
 /**
- * @brief Kalles når elevio_floorSensor != 0, og kaller 
- * sjekkEtasje(floor) for å se om heisen skal stoppe i denne etasjen. \n
- * Hvis ja kaller stoppPåEtasje() \n
- * Skrur på etasjelys, elevio_floorIndicator()
+ * @brief Prosedyre for hva som skjer når heisen kjører forbi en heissensor (stoppe, ikke stoppe?)
  * 
  * @param floor Etasjen som er ankommet
  */
 void ankomEtasje(int floor);
 
 /**
- * @brief Kalles av ankomEtasje(floor) når heisen skal stoppe. \n
- * Kaller funksjonene \n
- *   setRetning(); #0 \n
- *   clearBestillinger(); \n
- *   åpneDør(); \n
- *   lukkDør(); \n
- *   inaktiv(); \n
- * som får heisen til å stoppe, fjerne bestillinger i etasjen, åpner/lukker dør og starter inaktiv modus
+ * @brief Prosedyre for stans av heis \n
+ * Stopper heisen, ekspederer alle bestillinger i etasjen, åpner og lukker dør,
+ * starter inaktiv() til slutt
+ * 
  * @param floor Etasjen som skal stoppes i
  */
 void stoppPåEtasje(int floor);
 
 /**
  * @brief Oppstarts-script \n
- * Skrur av alle lys, sjekker om heisen er i en gyldig posisjon med elevio_floorSensor() \n
- *   Hvis posisjonen er ugyldig: Setter retning nedover, alltid, frem til den treffer en etasje. \n
- *   Ignorerer alle input frem til gyldig etasje er funnet \n
- * Når heisen er i gyldig posisjon: Kaller ankomEtasje() for å skru på etasjelys \n
- * Går inaktiv
+ * Skrur av alle lys, sjekker om heisen er i en gyldig posisjon. Går alltid til etasjen under ved ugyldig posisjon.
+ * Skrur på rett etasjelys og går inaktiv()
  */
 void oppstart();
 
 /**
- * @brief Inaktiv kalles når det ikke er noen bestillinger, eller det ikke er åpenbart at det finnes noen bestillinger \n
- * Stopper heisen, setRetning() #0 \n
- * Kjører en evig løkke gjennom alle knapper, loopKnapper(kanVekkes=true) \n
- * Når en knapp trykkes, breakes inaktiv
- * 
+ * @brief Inaktiv modus \n
+ * Stopper heisen, venter på nye bestillinger. Brytes når bestilling mottas
  */
 void inaktiv();
 
 /**
- * @brief Implementerer logikk for stopp-knapp
- * 
+ * @brief Implementerer logikk for stopp-knapp \n
+ * Stopper heisen og Skrur på stopp-lys. Åpner døren dersom heisen er i en etasje og ignorerer alle bestillinger når knappen er trykket.
+ * Dersom heisen er mellom etasjer, brukes forrige etasje og retning før stopp til ny automatisk initialisering
  */
 void stoppKnappFunksjon();
 
@@ -77,6 +66,6 @@ void setForrigeEtasje(int nyForrigeEtasje);
 /**
  * @brief Henter verdien for hva den forrige etasjen var
  * 
- * @return int, forrige etasje
+ * @return Forrige etasje
  */
 int getForrigeEtasje();

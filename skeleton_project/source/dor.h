@@ -6,14 +6,13 @@
 #pragma once
 
 /**
- * @brief Skrur på dør-lys dersom heisen er i en etasje. Kalles av stoppPåEtasje
+ * @brief Åpner døren (skrur på dør-lys) når heisen har stoppet på en etasje
  * 
  */
 void åpneDør();
 
 /**
- * @brief Skrur av dør lys etter 3 sekunder. Sjekker underveis om det er en obstruksjon som gjør at døren ikke kan lukkes. 
- * Hvis det er en obstruksjon, venter den 3 nye sekunder etter den er borte på å skru av lyset, og fortsetter å se etter obstruksjoner. \n
- * Kaller loopKnapper() #false for å sjekke om noen av knappene blir trykket i mellomtiden. Den skal ikke brytes.
+ * @brief Logikk for lukking av heisdørene (slukke dør-lys) \n
+ * 3 sekunder etter funksjonen kalles lukkes dørene så lenge det ikke er en obstruksjon, da resettes timeren
  */
 void lukkDør();
