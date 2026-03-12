@@ -104,36 +104,24 @@ $(function(){initNavTree('heisbevegelse_8c.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a844350fa7bac51f28954e2066f132f21" id="r_a844350fa7bac51f28954e2066f132f21"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a844350fa7bac51f28954e2066f132f21">getRetning</a> ()</td></tr>
-<tr class="memdesc:a844350fa7bac51f28954e2066f132f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kalles når man må vite hvilken retning man kjører i.  <br /></td></tr>
+<tr class="memdesc:a844350fa7bac51f28954e2066f132f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">returnerer hvilken retning heisen har eller hadde før evt. stans  <br /></td></tr>
 <tr class="memitem:ac6cfe68f089ea6cd52775480c9ccfb1e" id="r_ac6cfe68f089ea6cd52775480c9ccfb1e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac6cfe68f089ea6cd52775480c9ccfb1e">setRetning</a> (int nyRetning)</td></tr>
-<tr class="memdesc:ac6cfe68f089ea6cd52775480c9ccfb1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bestemmer hvilken retning heisen skal bevege seg i.  <br /></td></tr>
+<tr class="memdesc:ac6cfe68f089ea6cd52775480c9ccfb1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bestemmer hvilken retning heisen skal bevege seg i <br  />
+Lagrer retningen til bruk i <a class="el" href="heisbevegelse_8h.html#a844350fa7bac51f28954e2066f132f21" title="returnerer hvilken retning heisen har eller hadde før evt. stans">getRetning()</a> dersom nyRetning != 0.  <br /></td></tr>
 <tr class="memitem:a888c4526b5fb7bf9305f2b7e0c76481e" id="r_a888c4526b5fb7bf9305f2b7e0c76481e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a888c4526b5fb7bf9305f2b7e0c76481e">ankomEtasje</a> (int floor)</td></tr>
-<tr class="memdesc:a888c4526b5fb7bf9305f2b7e0c76481e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kalles når elevio_floorSensor != 0, og kaller sjekkEtasje(floor) for å se om heisen skal stoppe i denne etasjen. <br  />
-Hvis ja kaller <a class="el" href="heisbevegelse_8h.html#ab015b5c85b0c642eecb1781d7544517b" title="Kalles av ankomEtasje(floor) når heisen skal stoppe.  Kaller funksjonene   setRetning(); #0   clearBe...">stoppPåEtasje()</a> <br  />
-Skrur på etasjelys, <a class="el" href="elevio_8c.html#a184a3b9bd68d9f38ada735288059b823">elevio_floorIndicator()</a>.  <br /></td></tr>
+<tr class="memdesc:a888c4526b5fb7bf9305f2b7e0c76481e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prosedyre for hva som skjer når heisen kjører forbi en heissensor (stoppe, ikke stoppe?).  <br /></td></tr>
 <tr class="memitem:ab015b5c85b0c642eecb1781d7544517b" id="r_ab015b5c85b0c642eecb1781d7544517b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab015b5c85b0c642eecb1781d7544517b">stoppPåEtasje</a> (int floor)</td></tr>
-<tr class="memdesc:ab015b5c85b0c642eecb1781d7544517b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kalles av ankomEtasje(floor) når heisen skal stoppe. <br  />
-Kaller funksjonene <br  />
- <a class="el" href="heisbevegelse_8h.html#ac6cfe68f089ea6cd52775480c9ccfb1e" title="Bestemmer hvilken retning heisen skal bevege seg i.">setRetning()</a>; #0 <br  />
- <a class="el" href="bestillinger_8c.html#a002453e89f713fefa0c86a08ba5a8b44" title="Fjerner alle bestillinger i etasjen (Setter alle elementet tilhørende denne etasjen i alle knappelist...">clearBestillinger()</a>; <br  />
- <a class="el" href="dor_8c.html#aecd6e7e615ca7cd6a51ffeaff5d9ed94" title="Skrur på dør-lys dersom heisen er i en etasje. Kalles av stoppPåEtasje.">åpneDør()</a>; <br  />
- <a class="el" href="dor_8c.html#a3b73aa237ab55c7e95647c1b394ccbd8" title="Skrur av dør lys etter 3 sekunder. Sjekker underveis om det er en obstruksjon som gjør at døren ikke ...">lukkDør()</a>; <br  />
- <a class="el" href="heisbevegelse_8h.html#a9a6a8bc16560afe8d189ce2b1382ebde" title="Inaktiv kalles når det ikke er noen bestillinger, eller det ikke er åpenbart at det finnes noen besti...">inaktiv()</a>; <br  />
-som får heisen til å stoppe, fjerne bestillinger i etasjen, åpner/lukker dør og starter inaktiv modus.  <br /></td></tr>
+<tr class="memdesc:ab015b5c85b0c642eecb1781d7544517b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prosedyre for stans av heis <br  />
+Stopper heisen, ekspederer alle bestillinger i etasjen, åpner og lukker dør, starter <a class="el" href="heisbevegelse_8h.html#a9a6a8bc16560afe8d189ce2b1382ebde" title="Inaktiv modus  Stopper heisen, venter på nye bestillinger. Brytes når bestilling mottas.">inaktiv()</a> til slutt.  <br /></td></tr>
 <tr class="memitem:a9bcb63d4556b35109cbf73829ad6f887" id="r_a9bcb63d4556b35109cbf73829ad6f887"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9bcb63d4556b35109cbf73829ad6f887">oppstart</a> ()</td></tr>
 <tr class="memdesc:a9bcb63d4556b35109cbf73829ad6f887"><td class="mdescLeft">&#160;</td><td class="mdescRight">Oppstarts-script <br  />
-Skrur av alle lys, sjekker om heisen er i en gyldig posisjon med <a class="el" href="elevio_8c.html#a6c30a3c0241ebf37a9014679e1bf288d">elevio_floorSensor()</a> <br  />
- Hvis posisjonen er ugyldig: Setter retning nedover, alltid, frem til den treffer en etasje. <br  />
- Ignorerer alle input frem til gyldig etasje er funnet <br  />
-Når heisen er i gyldig posisjon: Kaller <a class="el" href="heisbevegelse_8h.html#a888c4526b5fb7bf9305f2b7e0c76481e" title="Kalles når elevio_floorSensor != 0, og kaller sjekkEtasje(floor) for å se om heisen skal stoppe i den...">ankomEtasje()</a> for å skru på etasjelys <br  />
-Går inaktiv.  <br /></td></tr>
+Skrur av alle lys, sjekker om heisen er i en gyldig posisjon. Går alltid til etasjen under ved ugyldig posisjon. Skrur på rett etasjelys og går <a class="el" href="heisbevegelse_8h.html#a9a6a8bc16560afe8d189ce2b1382ebde" title="Inaktiv modus  Stopper heisen, venter på nye bestillinger. Brytes når bestilling mottas.">inaktiv()</a>.  <br /></td></tr>
 <tr class="memitem:a9a6a8bc16560afe8d189ce2b1382ebde" id="r_a9a6a8bc16560afe8d189ce2b1382ebde"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9a6a8bc16560afe8d189ce2b1382ebde">inaktiv</a> ()</td></tr>
-<tr class="memdesc:a9a6a8bc16560afe8d189ce2b1382ebde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inaktiv kalles når det ikke er noen bestillinger, eller det ikke er åpenbart at det finnes noen bestillinger <br  />
-Stopper heisen, <a class="el" href="heisbevegelse_8h.html#ac6cfe68f089ea6cd52775480c9ccfb1e" title="Bestemmer hvilken retning heisen skal bevege seg i.">setRetning()</a> #0 <br  />
-Kjører en evig løkke gjennom alle knapper, loopKnapper(kanVekkes=true) <br  />
-Når en knapp trykkes, breakes inaktiv.  <br /></td></tr>
+<tr class="memdesc:a9a6a8bc16560afe8d189ce2b1382ebde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inaktiv modus <br  />
+Stopper heisen, venter på nye bestillinger. Brytes når bestilling mottas.  <br /></td></tr>
 <tr class="memitem:ad008429b16798f31470c9cfd48ed8491" id="r_ad008429b16798f31470c9cfd48ed8491"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad008429b16798f31470c9cfd48ed8491">stoppKnappFunksjon</a> ()</td></tr>
-<tr class="memdesc:ad008429b16798f31470c9cfd48ed8491"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementerer logikk for stopp-knapp.  <br /></td></tr>
+<tr class="memdesc:ad008429b16798f31470c9cfd48ed8491"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementerer logikk for stopp-knapp <br  />
+Stopper heisen og Skrur på stopp-lys. Åpner døren dersom heisen er i en etasje og ignorerer alle bestillinger når knappen er trykket. Dersom heisen er mellom etasjer, brukes forrige etasje og retning før stopp til ny automatisk initialisering.  <br /></td></tr>
 <tr class="memitem:a51c836d8645e79ddf8436af90a114f0a" id="r_a51c836d8645e79ddf8436af90a114f0a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a51c836d8645e79ddf8436af90a114f0a">setForrigeEtasje</a> (int nyForrigeEtasje)</td></tr>
 <tr class="memdesc:a51c836d8645e79ddf8436af90a114f0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Oppdaterer hva den forrige etasjen var.  <br /></td></tr>
 <tr class="memitem:a89836e253b4fc108ae8a2c33db370e5b" id="r_a89836e253b4fc108ae8a2c33db370e5b"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a89836e253b4fc108ae8a2c33db370e5b">getForrigeEtasje</a> ()</td></tr>
@@ -160,9 +148,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Kalles når elevio_floorSensor != 0, og kaller sjekkEtasje(floor) for å se om heisen skal stoppe i denne etasjen. <br  />
-Hvis ja kaller <a class="el" href="heisbevegelse_8h.html#ab015b5c85b0c642eecb1781d7544517b" title="Kalles av ankomEtasje(floor) når heisen skal stoppe.  Kaller funksjonene   setRetning(); #0   clearBe...">stoppPåEtasje()</a> <br  />
-Skrur på etasjelys, <a class="el" href="elevio_8c.html#a184a3b9bd68d9f38ada735288059b823">elevio_floorIndicator()</a>. </p>
+<p>Prosedyre for hva som skjer når heisen kjører forbi en heissensor (stoppe, ikke stoppe?). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">floor</td><td>Etasjen som er ankommet </td></tr>
@@ -190,7 +176,7 @@ Skrur på etasjelys, <a class="el" href="elevio_8c.html#a184a3b9bd68d9f38ada7352
 </div><div class="memdoc">
 
 <p>Henter verdien for hva den forrige etasjen var. </p>
-<dl class="section return"><dt>Returns</dt><dd>int, forrige etasje </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Forrige etasje </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="heisbevegelse_8c_source.html#l00121">121</a> of file <a class="el" href="heisbevegelse_8c_source.html">heisbevegelse.c</a>.</p>
 
@@ -211,8 +197,10 @@ Skrur på etasjelys, <a class="el" href="elevio_8c.html#a184a3b9bd68d9f38ada7352
       </table>
 </div><div class="memdoc">
 
-<p>Kalles når man må vite hvilken retning man kjører i. </p>
-<dl class="section return"><dt>Returns</dt><dd>int retning </dd></dl>
+<p>returnerer hvilken retning heisen har eller hadde før evt. stans </p>
+<dl class="section return"><dt>Returns</dt><dd>1: retning = opp </dd>
+<dd>
+-1: retning = ned </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="heisbevegelse_8c_source.html#l00013">13</a> of file <a class="el" href="heisbevegelse_8c_source.html">heisbevegelse.c</a>.</p>
 
@@ -233,10 +221,8 @@ Skrur på etasjelys, <a class="el" href="elevio_8c.html#a184a3b9bd68d9f38ada7352
       </table>
 </div><div class="memdoc">
 
-<p>Inaktiv kalles når det ikke er noen bestillinger, eller det ikke er åpenbart at det finnes noen bestillinger <br  />
-Stopper heisen, <a class="el" href="heisbevegelse_8h.html#ac6cfe68f089ea6cd52775480c9ccfb1e" title="Bestemmer hvilken retning heisen skal bevege seg i.">setRetning()</a> #0 <br  />
-Kjører en evig løkke gjennom alle knapper, loopKnapper(kanVekkes=true) <br  />
-Når en knapp trykkes, breakes inaktiv. </p>
+<p>Inaktiv modus <br  />
+Stopper heisen, venter på nye bestillinger. Brytes når bestilling mottas. </p>
 
 <p class="definition">Definition at line <a class="el" href="heisbevegelse_8c_source.html#l00070">70</a> of file <a class="el" href="heisbevegelse_8c_source.html">heisbevegelse.c</a>.</p>
 
@@ -258,11 +244,7 @@ Når en knapp trykkes, breakes inaktiv. </p>
 </div><div class="memdoc">
 
 <p>Oppstarts-script <br  />
-Skrur av alle lys, sjekker om heisen er i en gyldig posisjon med <a class="el" href="elevio_8c.html#a6c30a3c0241ebf37a9014679e1bf288d">elevio_floorSensor()</a> <br  />
- Hvis posisjonen er ugyldig: Setter retning nedover, alltid, frem til den treffer en etasje. <br  />
- Ignorerer alle input frem til gyldig etasje er funnet <br  />
-Når heisen er i gyldig posisjon: Kaller <a class="el" href="heisbevegelse_8h.html#a888c4526b5fb7bf9305f2b7e0c76481e" title="Kalles når elevio_floorSensor != 0, og kaller sjekkEtasje(floor) for å se om heisen skal stoppe i den...">ankomEtasje()</a> for å skru på etasjelys <br  />
-Går inaktiv. </p>
+Skrur av alle lys, sjekker om heisen er i en gyldig posisjon. Går alltid til etasjen under ved ugyldig posisjon. Skrur på rett etasjelys og går <a class="el" href="heisbevegelse_8h.html#a9a6a8bc16560afe8d189ce2b1382ebde" title="Inaktiv modus  Stopper heisen, venter på nye bestillinger. Brytes når bestilling mottas.">inaktiv()</a>. </p>
 
 <p class="definition">Definition at line <a class="el" href="heisbevegelse_8c_source.html#l00047">47</a> of file <a class="el" href="heisbevegelse_8c_source.html">heisbevegelse.c</a>.</p>
 
@@ -310,7 +292,8 @@ Går inaktiv. </p>
       </table>
 </div><div class="memdoc">
 
-<p>Bestemmer hvilken retning heisen skal bevege seg i. </p>
+<p>Bestemmer hvilken retning heisen skal bevege seg i <br  />
+Lagrer retningen til bruk i <a class="el" href="heisbevegelse_8h.html#a844350fa7bac51f28954e2066f132f21" title="returnerer hvilken retning heisen har eller hadde før evt. stans">getRetning()</a> dersom nyRetning != 0. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nyRetning</td><td>Retningen som skal brukes </td></tr>
@@ -337,7 +320,8 @@ Går inaktiv. </p>
       </table>
 </div><div class="memdoc">
 
-<p>Implementerer logikk for stopp-knapp. </p>
+<p>Implementerer logikk for stopp-knapp <br  />
+Stopper heisen og Skrur på stopp-lys. Åpner døren dersom heisen er i en etasje og ignorerer alle bestillinger når knappen er trykket. Dersom heisen er mellom etasjer, brukes forrige etasje og retning før stopp til ny automatisk initialisering. </p>
 
 <p class="definition">Definition at line <a class="el" href="heisbevegelse_8c_source.html#l00088">88</a> of file <a class="el" href="heisbevegelse_8c_source.html">heisbevegelse.c</a>.</p>
 
@@ -358,14 +342,8 @@ Går inaktiv. </p>
       </table>
 </div><div class="memdoc">
 
-<p>Kalles av ankomEtasje(floor) når heisen skal stoppe. <br  />
-Kaller funksjonene <br  />
- <a class="el" href="heisbevegelse_8h.html#ac6cfe68f089ea6cd52775480c9ccfb1e" title="Bestemmer hvilken retning heisen skal bevege seg i.">setRetning()</a>; #0 <br  />
- <a class="el" href="bestillinger_8c.html#a002453e89f713fefa0c86a08ba5a8b44" title="Fjerner alle bestillinger i etasjen (Setter alle elementet tilhørende denne etasjen i alle knappelist...">clearBestillinger()</a>; <br  />
- <a class="el" href="dor_8c.html#aecd6e7e615ca7cd6a51ffeaff5d9ed94" title="Skrur på dør-lys dersom heisen er i en etasje. Kalles av stoppPåEtasje.">åpneDør()</a>; <br  />
- <a class="el" href="dor_8c.html#a3b73aa237ab55c7e95647c1b394ccbd8" title="Skrur av dør lys etter 3 sekunder. Sjekker underveis om det er en obstruksjon som gjør at døren ikke ...">lukkDør()</a>; <br  />
- <a class="el" href="heisbevegelse_8h.html#a9a6a8bc16560afe8d189ce2b1382ebde" title="Inaktiv kalles når det ikke er noen bestillinger, eller det ikke er åpenbart at det finnes noen besti...">inaktiv()</a>; <br  />
-som får heisen til å stoppe, fjerne bestillinger i etasjen, åpner/lukker dør og starter inaktiv modus. </p>
+<p>Prosedyre for stans av heis <br  />
+Stopper heisen, ekspederer alle bestillinger i etasjen, åpner og lukker dør, starter <a class="el" href="heisbevegelse_8h.html#a9a6a8bc16560afe8d189ce2b1382ebde" title="Inaktiv modus  Stopper heisen, venter på nye bestillinger. Brytes når bestilling mottas.">inaktiv()</a> til slutt. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">floor</td><td>Etasjen som skal stoppes i </td></tr>

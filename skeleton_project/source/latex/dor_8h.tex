@@ -9,10 +9,10 @@ Dør definerer og deklarerer funksjoner som omhandler dør-\/logikk.
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{dor_8h_aecd6e7e615ca7cd6a51ffeaff5d9ed94}{åpne\+Dør}} ()
-\begin{DoxyCompactList}\small\item\em Skrur på dør-\/lys dersom heisen er i en etasje. Kalles av stopp\+På\+Etasje. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Åpner døren (skrur på dør-\/lys) når heisen har stoppet på en etasje. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{dor_8h_a3b73aa237ab55c7e95647c1b394ccbd8}{lukk\+Dør}} ()
-\begin{DoxyCompactList}\small\item\em Skrur av dør lys etter 3 sekunder. Sjekker underveis om det er en obstruksjon som gjør at døren ikke kan lukkes. Hvis det er en obstruksjon, venter den 3 nye sekunder etter den er borte på å skru av lyset, og fortsetter å se etter obstruksjoner. ~\newline
-Kaller \doxylink{bestillinger_8c_a6550cd6989418e13cf7516820a2185cb}{loop\+Knapper()} \+\#false for å sjekke om noen av knappene blir trykket i mellomtiden. Den skal ikke brytes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Logikk for lukking av heisdørene (slukke dør-\/lys) ~\newline
+3 sekunder etter funksjonen kalles lukkes dørene så lenge det ikke er en obstruksjon, da resettes timeren. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -35,7 +35,7 @@ void åpne\+Dør (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Skrur på dør-\/lys dersom heisen er i en etasje. Kalles av stopp\+På\+Etasje. 
+Åpner døren (skrur på dør-\/lys) når heisen har stoppet på en etasje. 
 
 
 
@@ -49,8 +49,8 @@ void lukk\+Dør (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
-Skrur av dør lys etter 3 sekunder. Sjekker underveis om det er en obstruksjon som gjør at døren ikke kan lukkes. Hvis det er en obstruksjon, venter den 3 nye sekunder etter den er borte på å skru av lyset, og fortsetter å se etter obstruksjoner. ~\newline
-Kaller \doxylink{bestillinger_8c_a6550cd6989418e13cf7516820a2185cb}{loop\+Knapper()} \+\#false for å sjekke om noen av knappene blir trykket i mellomtiden. Den skal ikke brytes. 
+Logikk for lukking av heisdørene (slukke dør-\/lys) ~\newline
+3 sekunder etter funksjonen kalles lukkes dørene så lenge det ikke er en obstruksjon, da resettes timeren. 
 
 
 

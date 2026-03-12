@@ -10,28 +10,21 @@ Bestillinger definerer og deklarerer alle funksjoner som omhandler bestillinger,
 \begin{DoxyCompactItemize}
 \item 
 void \doxymbox{\hyperlink{bestillinger_8h_a8b5278890a53149b82626f28967cff39}{opprett\+Bestilling}} (int floor, int button)
-\begin{DoxyCompactList}\small\item\em Tar inn type knapp som ble trykket og hvilken etasje brukerer vil dra til ~\newline
- Typen (button) knapp bestemmer hvilken array (opp\+Bestillinger, ned\+Bestillinger, innvendige\+Bestillinger) bestillinger skal lagres og etasjer (floor) bestemmer hvilken posisjon den skal ha ~\newline
- For eksempel vil en opp-\/knapp i 2. etasje lagres i opp\+Bestillinger\+[1]\+. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Oppretter en bestilling for knapp som har blitt trykket. \end{DoxyCompactList}\item 
 int \doxymbox{\hyperlink{bestillinger_8h_a6550cd6989418e13cf7516820a2185cb}{loop\+Knapper}} (bool kan\+Vekkes)
-\begin{DoxyCompactList}\small\item\em Looper gjennom alle etasjer og knapptyper og sjekker om \doxylink{elevio_8c_a2485d7d293f03756a852ee1f796b9e1f}{elevio\+\_\+call\+Button()} for etasje og knapptype er true ~\newline
-Kaller opprett\+Bestillig() for knappen som er trykket. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Løkke for å sjekke om en/\+flere knapp(er) har blitt trykket på ~\newline
+Brukes når heisen utfører en funksjon som tar noe tid eller når heisen er inaktiv, slik at alle knappetrykk blir registrert. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{bestillinger_8h_aa5df81de8792fcfb717fbcd9beb632b6}{finnes\+Bestilling}} (int floor)
-\begin{DoxyCompactList}\small\item\em Sjekker om det finnes en bestilling for etasjen som blir sjekket, altså om en av knappelistene har true for elementet floor. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sjekker om det finnes en bestilling for etasjen som blir sjekket. \end{DoxyCompactList}\item 
 bool \doxymbox{\hyperlink{bestillinger_8h_a0db49d791097a776198e0ea853cbf7ba}{sjekk\+Etasje}} (int floor, int \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}})
-\begin{DoxyCompactList}\small\item\em Sjekker om heisen skal stoppe i etasjen. Blir kalt av \doxylink{heisbevegelse_8c_a888c4526b5fb7bf9305f2b7e0c76481e}{ankom\+Etasje()} ~\newline
- Fungerer slik:\+ Finnes det en panelbestilling eller en bestilling i samme retning? ~\newline
- Hvis ja:\+ stopp. ~\newline
- Hvis nei:\+ Finnes det en bestilling i etasjen i motsatt retning, men ingen andre bestillinger i samme retning? ~\newline
- Hvis ja:\+ stopp. Hvis nei:\+ ikke stopp. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sjekker om heisen skal stoppe i etasjen ~\newline
+ Blir kalt av \doxylink{heisbevegelse_8c_a888c4526b5fb7bf9305f2b7e0c76481e}{ankom\+Etasje()}. \end{DoxyCompactList}\item 
 void \doxymbox{\hyperlink{bestillinger_8h_a002453e89f713fefa0c86a08ba5a8b44}{clear\+Bestillinger}} (int floor)
-\begin{DoxyCompactList}\small\item\em Fjerner alle bestillinger i etasjen (Setter alle elementet tilhørende denne etasjen i alle knappelistene til false) ~\newline
+\begin{DoxyCompactList}\small\item\em Fjerner alle bestillinger i etasjen ~\newline
  Kalles når heisen stopper i en etasje, og brukes i \doxylink{heisbevegelse_8c_a9bcb63d4556b35109cbf73829ad6f887}{oppstart()} til å skru av alle lamper. \end{DoxyCompactList}\item 
 int \doxymbox{\hyperlink{bestillinger_8h_ad43cb301526f245bfce92e60ff0136b2}{retnings\+Velger}} (int floor, int \doxymbox{\hyperlink{heisbevegelse_8c_a5df43858714fc4dd9519d684e016005b}{retning}})
-\begin{DoxyCompactList}\small\item\em Bestemmer hvilken retning heisen skal kjøre. Kalles når heisen har stoppet. ~\newline
-Sjekker om det finnes en bestilling i retningen heisen hadde før stoppet. Hvis ja:\+ fortsett i samme retning ~\newline
- Hvis nei:\+ Sjekker om det finnes en bestilling i mostatt retning. Hvis ja:\+ bytt retning ~\newline
- Hvis nei:\+ stå stille. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Bestemmer hvilken retning heisen skal kjøre ~\newline
+ Kalles når heisen skal starte igjen etter stans. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -54,7 +47,7 @@ void clear\+Bestillinger (\begin{DoxyParamCaption}\item[{int}]{floor}{}\end{Doxy
 
 
 
-Fjerner alle bestillinger i etasjen (Setter alle elementet tilhørende denne etasjen i alle knappelistene til false) ~\newline
+Fjerner alle bestillinger i etasjen ~\newline
  Kalles når heisen stopper i en etasje, og brukes i \doxylink{heisbevegelse_8c_a9bcb63d4556b35109cbf73829ad6f887}{oppstart()} til å skru av alle lamper. 
 
 
@@ -74,7 +67,7 @@ bool finnes\+Bestilling (\begin{DoxyParamCaption}\item[{int}]{floor}{}\end{DoxyP
 
 
 
-Sjekker om det finnes en bestilling for etasjen som blir sjekket, altså om en av knappelistene har true for elementet floor. 
+Sjekker om det finnes en bestilling for etasjen som blir sjekket. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -82,9 +75,9 @@ Sjekker om det finnes en bestilling for etasjen som blir sjekket, altså om en a
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-true:\+ En av listene har en bestilling i denne etasjen 
+true:\+ Finnes bestilling i etasjen 
 
-false:\+ Ingen av listene har en bestilling i denne etasjen 
+false:\+ Finnes ingen bestilling i etasjen 
 \end{DoxyReturn}
 
 
@@ -98,8 +91,8 @@ int loop\+Knapper (\begin{DoxyParamCaption}\item[{bool}]{kan\+Vekkes}{}\end{Doxy
 
 
 
-Looper gjennom alle etasjer og knapptyper og sjekker om \doxylink{elevio_8c_a2485d7d293f03756a852ee1f796b9e1f}{elevio\+\_\+call\+Button()} for etasje og knapptype er true ~\newline
-Kaller opprett\+Bestillig() for knappen som er trykket. 
+Løkke for å sjekke om en/\+flere knapp(er) har blitt trykket på ~\newline
+Brukes når heisen utfører en funksjon som tar noe tid eller når heisen er inaktiv, slik at alle knappetrykk blir registrert. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -121,9 +114,7 @@ void opprett\+Bestilling (\begin{DoxyParamCaption}\item[{int}]{floor}{, }\item[{
 
 
 
-Tar inn type knapp som ble trykket og hvilken etasje brukerer vil dra til ~\newline
- Typen (button) knapp bestemmer hvilken array (opp\+Bestillinger, ned\+Bestillinger, innvendige\+Bestillinger) bestillinger skal lagres og etasjer (floor) bestemmer hvilken posisjon den skal ha ~\newline
- For eksempel vil en opp-\/knapp i 2. etasje lagres i opp\+Bestillinger\+[1]\+. 
+Oppretter en bestilling for knapp som har blitt trykket. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -144,10 +135,8 @@ int retnings\+Velger (\begin{DoxyParamCaption}\item[{int}]{floor}{, }\item[{int}
 
 
 
-Bestemmer hvilken retning heisen skal kjøre. Kalles når heisen har stoppet. ~\newline
-Sjekker om det finnes en bestilling i retningen heisen hadde før stoppet. Hvis ja:\+ fortsett i samme retning ~\newline
- Hvis nei:\+ Sjekker om det finnes en bestilling i mostatt retning. Hvis ja:\+ bytt retning ~\newline
- Hvis nei:\+ stå stille. 
+Bestemmer hvilken retning heisen skal kjøre ~\newline
+ Kalles når heisen skal starte igjen etter stans. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -157,7 +146,11 @@ Sjekker om det finnes en bestilling i retningen heisen hadde før stoppet. Hvis 
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-1:\+ oppover, -\/1:\+ nedover, 0:\+ stille 
+1:\+ Velg retning oppover 
+
+-\/1:\+ Velg retning nedover 
+
+0:\+ Ingen retning valgt, stå stille 
 \end{DoxyReturn}
 
 
@@ -171,11 +164,8 @@ bool sjekk\+Etasje (\begin{DoxyParamCaption}\item[{int}]{floor}{, }\item[{int}]{
 
 
 
-Sjekker om heisen skal stoppe i etasjen. Blir kalt av \doxylink{heisbevegelse_8c_a888c4526b5fb7bf9305f2b7e0c76481e}{ankom\+Etasje()} ~\newline
- Fungerer slik:\+ Finnes det en panelbestilling eller en bestilling i samme retning? ~\newline
- Hvis ja:\+ stopp. ~\newline
- Hvis nei:\+ Finnes det en bestilling i etasjen i motsatt retning, men ingen andre bestillinger i samme retning? ~\newline
- Hvis ja:\+ stopp. Hvis nei:\+ ikke stopp. 
+Sjekker om heisen skal stoppe i etasjen ~\newline
+ Blir kalt av \doxylink{heisbevegelse_8c_a888c4526b5fb7bf9305f2b7e0c76481e}{ankom\+Etasje()}. 
 
 
 \begin{DoxyParams}{Parameters}

@@ -101,28 +101,21 @@ $(function(){initNavTree('bestillinger_8h.html','',''); });
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a8b5278890a53149b82626f28967cff39" id="r_a8b5278890a53149b82626f28967cff39"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8b5278890a53149b82626f28967cff39">opprettBestilling</a> (int floor, int button)</td></tr>
-<tr class="memdesc:a8b5278890a53149b82626f28967cff39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tar inn type knapp som ble trykket og hvilken etasje brukerer vil dra til <br  />
- Typen (button) knapp bestemmer hvilken array (oppBestillinger, nedBestillinger, innvendigeBestillinger) bestillinger skal lagres og etasjer (floor) bestemmer hvilken posisjon den skal ha <br  />
- For eksempel vil en opp-knapp i 2. etasje lagres i oppBestillinger[1].  <br /></td></tr>
+<tr class="memdesc:a8b5278890a53149b82626f28967cff39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Oppretter en bestilling for knapp som har blitt trykket.  <br /></td></tr>
 <tr class="memitem:a6550cd6989418e13cf7516820a2185cb" id="r_a6550cd6989418e13cf7516820a2185cb"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a6550cd6989418e13cf7516820a2185cb">loopKnapper</a> (bool kanVekkes)</td></tr>
-<tr class="memdesc:a6550cd6989418e13cf7516820a2185cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Looper gjennom alle etasjer og knapptyper og sjekker om <a class="el" href="elevio_8c.html#a2485d7d293f03756a852ee1f796b9e1f">elevio_callButton()</a> for etasje og knapptype er true <br  />
-Kaller opprettBestillig() for knappen som er trykket.  <br /></td></tr>
+<tr class="memdesc:a6550cd6989418e13cf7516820a2185cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Løkke for å sjekke om en/flere knapp(er) har blitt trykket på <br  />
+Brukes når heisen utfører en funksjon som tar noe tid eller når heisen er inaktiv, slik at alle knappetrykk blir registrert.  <br /></td></tr>
 <tr class="memitem:aa5df81de8792fcfb717fbcd9beb632b6" id="r_aa5df81de8792fcfb717fbcd9beb632b6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa5df81de8792fcfb717fbcd9beb632b6">finnesBestilling</a> (int floor)</td></tr>
-<tr class="memdesc:aa5df81de8792fcfb717fbcd9beb632b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sjekker om det finnes en bestilling for etasjen som blir sjekket, altså om en av knappelistene har true for elementet floor.  <br /></td></tr>
+<tr class="memdesc:aa5df81de8792fcfb717fbcd9beb632b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sjekker om det finnes en bestilling for etasjen som blir sjekket.  <br /></td></tr>
 <tr class="memitem:a0db49d791097a776198e0ea853cbf7ba" id="r_a0db49d791097a776198e0ea853cbf7ba"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0db49d791097a776198e0ea853cbf7ba">sjekkEtasje</a> (int floor, int <a class="el" href="heisbevegelse_8c.html#a5df43858714fc4dd9519d684e016005b">retning</a>)</td></tr>
-<tr class="memdesc:a0db49d791097a776198e0ea853cbf7ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sjekker om heisen skal stoppe i etasjen. Blir kalt av <a class="el" href="heisbevegelse_8c.html#a888c4526b5fb7bf9305f2b7e0c76481e" title="Kalles når elevio_floorSensor != 0, og kaller sjekkEtasje(floor) for å se om heisen skal stoppe i den...">ankomEtasje()</a> <br  />
- Fungerer slik: Finnes det en panelbestilling eller en bestilling i samme retning? <br  />
- Hvis ja: stopp. <br  />
- Hvis nei: Finnes det en bestilling i etasjen i motsatt retning, men ingen andre bestillinger i samme retning? <br  />
- Hvis ja: stopp. Hvis nei: ikke stopp.  <br /></td></tr>
+<tr class="memdesc:a0db49d791097a776198e0ea853cbf7ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sjekker om heisen skal stoppe i etasjen <br  />
+ Blir kalt av <a class="el" href="heisbevegelse_8c.html#a888c4526b5fb7bf9305f2b7e0c76481e" title="Prosedyre for hva som skjer når heisen kjører forbi en heissensor (stoppe, ikke stoppe?...">ankomEtasje()</a>.  <br /></td></tr>
 <tr class="memitem:a002453e89f713fefa0c86a08ba5a8b44" id="r_a002453e89f713fefa0c86a08ba5a8b44"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a002453e89f713fefa0c86a08ba5a8b44">clearBestillinger</a> (int floor)</td></tr>
-<tr class="memdesc:a002453e89f713fefa0c86a08ba5a8b44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fjerner alle bestillinger i etasjen (Setter alle elementet tilhørende denne etasjen i alle knappelistene til false) <br  />
- Kalles når heisen stopper i en etasje, og brukes i <a class="el" href="heisbevegelse_8c.html#a9bcb63d4556b35109cbf73829ad6f887" title="Oppstarts-script  Skrur av alle lys, sjekker om heisen er i en gyldig posisjon med elevio_floorSensor...">oppstart()</a> til å skru av alle lamper.  <br /></td></tr>
+<tr class="memdesc:a002453e89f713fefa0c86a08ba5a8b44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fjerner alle bestillinger i etasjen <br  />
+ Kalles når heisen stopper i en etasje, og brukes i <a class="el" href="heisbevegelse_8c.html#a9bcb63d4556b35109cbf73829ad6f887" title="Oppstarts-script  Skrur av alle lys, sjekker om heisen er i en gyldig posisjon. Går alltid til etasje...">oppstart()</a> til å skru av alle lamper.  <br /></td></tr>
 <tr class="memitem:ad43cb301526f245bfce92e60ff0136b2" id="r_ad43cb301526f245bfce92e60ff0136b2"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ad43cb301526f245bfce92e60ff0136b2">retningsVelger</a> (int floor, int <a class="el" href="heisbevegelse_8c.html#a5df43858714fc4dd9519d684e016005b">retning</a>)</td></tr>
-<tr class="memdesc:ad43cb301526f245bfce92e60ff0136b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bestemmer hvilken retning heisen skal kjøre. Kalles når heisen har stoppet. <br  />
-Sjekker om det finnes en bestilling i retningen heisen hadde før stoppet. Hvis ja: fortsett i samme retning <br  />
- Hvis nei: Sjekker om det finnes en bestilling i mostatt retning. Hvis ja: bytt retning <br  />
- Hvis nei: stå stille.  <br /></td></tr>
+<tr class="memdesc:ad43cb301526f245bfce92e60ff0136b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bestemmer hvilken retning heisen skal kjøre <br  />
+ Kalles når heisen skal starte igjen etter stans.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Bestillinger definerer og deklarerer alle funksjoner som omhandler bestillinger, bestillingslogikk og knappetrykk. </p>
@@ -144,8 +137,8 @@ Sjekker om det finnes en bestilling i retningen heisen hadde før stoppet. Hvis 
       </table>
 </div><div class="memdoc">
 
-<p>Fjerner alle bestillinger i etasjen (Setter alle elementet tilhørende denne etasjen i alle knappelistene til false) <br  />
- Kalles når heisen stopper i en etasje, og brukes i <a class="el" href="heisbevegelse_8c.html#a9bcb63d4556b35109cbf73829ad6f887" title="Oppstarts-script  Skrur av alle lys, sjekker om heisen er i en gyldig posisjon med elevio_floorSensor...">oppstart()</a> til å skru av alle lamper. </p>
+<p>Fjerner alle bestillinger i etasjen <br  />
+ Kalles når heisen stopper i en etasje, og brukes i <a class="el" href="heisbevegelse_8c.html#a9bcb63d4556b35109cbf73829ad6f887" title="Oppstarts-script  Skrur av alle lys, sjekker om heisen er i en gyldig posisjon. Går alltid til etasje...">oppstart()</a> til å skru av alle lamper. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">floor</td><td>Etasjen man fjerner bestillinger fra </td></tr>
@@ -172,16 +165,16 @@ Sjekker om det finnes en bestilling i retningen heisen hadde før stoppet. Hvis 
       </table>
 </div><div class="memdoc">
 
-<p>Sjekker om det finnes en bestilling for etasjen som blir sjekket, altså om en av knappelistene har true for elementet floor. </p>
+<p>Sjekker om det finnes en bestilling for etasjen som blir sjekket. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">floor</td><td>Etasjen som blir sjekket </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true: En av listene har en bestilling i denne etasjen </dd>
+<dl class="section return"><dt>Returns</dt><dd>true: Finnes bestilling i etasjen </dd>
 <dd>
-false: Ingen av listene har en bestilling i denne etasjen </dd></dl>
+false: Finnes ingen bestilling i etasjen </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="bestillinger_8c_source.html#l00052">52</a> of file <a class="el" href="bestillinger_8c_source.html">bestillinger.c</a>.</p>
 
@@ -202,8 +195,8 @@ false: Ingen av listene har en bestilling i denne etasjen </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p>Looper gjennom alle etasjer og knapptyper og sjekker om <a class="el" href="elevio_8c.html#a2485d7d293f03756a852ee1f796b9e1f">elevio_callButton()</a> for etasje og knapptype er true <br  />
-Kaller opprettBestillig() for knappen som er trykket. </p>
+<p>Løkke for å sjekke om en/flere knapp(er) har blitt trykket på <br  />
+Brukes når heisen utfører en funksjon som tar noe tid eller når heisen er inaktiv, slik at alle knappetrykk blir registrert. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">kanVekkes</td><td>Dersom kanVekkes = true, vil løkken brytes når den oppdager at en knapp er trykket </td></tr>
@@ -235,9 +228,7 @@ Kaller opprettBestillig() for knappen som er trykket. </p>
       </table>
 </div><div class="memdoc">
 
-<p>Tar inn type knapp som ble trykket og hvilken etasje brukerer vil dra til <br  />
- Typen (button) knapp bestemmer hvilken array (oppBestillinger, nedBestillinger, innvendigeBestillinger) bestillinger skal lagres og etasjer (floor) bestemmer hvilken posisjon den skal ha <br  />
- For eksempel vil en opp-knapp i 2. etasje lagres i oppBestillinger[1]. </p>
+<p>Oppretter en bestilling for knapp som har blitt trykket. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">floor</td><td>Etasjen knappen hører til. 0 indeksert </td></tr>
@@ -269,10 +260,8 @@ Kaller opprettBestillig() for knappen som er trykket. </p>
       </table>
 </div><div class="memdoc">
 
-<p>Bestemmer hvilken retning heisen skal kjøre. Kalles når heisen har stoppet. <br  />
-Sjekker om det finnes en bestilling i retningen heisen hadde før stoppet. Hvis ja: fortsett i samme retning <br  />
- Hvis nei: Sjekker om det finnes en bestilling i mostatt retning. Hvis ja: bytt retning <br  />
- Hvis nei: stå stille. </p>
+<p>Bestemmer hvilken retning heisen skal kjøre <br  />
+ Kalles når heisen skal starte igjen etter stans. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">floor</td><td>Etasjen heisen står i </td></tr>
@@ -280,7 +269,11 @@ Sjekker om det finnes en bestilling i retningen heisen hadde før stoppet. Hvis 
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1: oppover, -1: nedover, 0: stille </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>1: Velg retning oppover </dd>
+<dd>
+-1: Velg retning nedover </dd>
+<dd>
+0: Ingen retning valgt, stå stille </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="bestillinger_8c_source.html#l00099">99</a> of file <a class="el" href="bestillinger_8c_source.html">bestillinger.c</a>.</p>
 
@@ -305,11 +298,8 @@ Sjekker om det finnes en bestilling i retningen heisen hadde før stoppet. Hvis 
       </table>
 </div><div class="memdoc">
 
-<p>Sjekker om heisen skal stoppe i etasjen. Blir kalt av <a class="el" href="heisbevegelse_8c.html#a888c4526b5fb7bf9305f2b7e0c76481e" title="Kalles når elevio_floorSensor != 0, og kaller sjekkEtasje(floor) for å se om heisen skal stoppe i den...">ankomEtasje()</a> <br  />
- Fungerer slik: Finnes det en panelbestilling eller en bestilling i samme retning? <br  />
- Hvis ja: stopp. <br  />
- Hvis nei: Finnes det en bestilling i etasjen i motsatt retning, men ingen andre bestillinger i samme retning? <br  />
- Hvis ja: stopp. Hvis nei: ikke stopp. </p>
+<p>Sjekker om heisen skal stoppe i etasjen <br  />
+ Blir kalt av <a class="el" href="heisbevegelse_8c.html#a888c4526b5fb7bf9305f2b7e0c76481e" title="Prosedyre for hva som skjer når heisen kjører forbi en heissensor (stoppe, ikke stoppe?...">ankomEtasje()</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">floor</td><td>Etasjen som sjekkes </td></tr>
